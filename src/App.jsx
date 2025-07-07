@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Header from './components/Header';
 import TaskInput from './components/TaskInput';
 import TaskList from './components/TaskList';
-import './App.css';
+import './reset.css';
 import './index.css';
 import Pomotomo from './components/Pomotomo';
 
@@ -14,17 +14,21 @@ import Pomotomo from './components/Pomotomo';
 
 function App() {
   const [task, setTask] = useState([]);
+  const [activeMachine, setActiveMachine] = useState('bounceAnim');
 
   function handleAddTask(newTask) {
     setTask((tasks) => [...tasks, newTask]);
   }
 
   return (
-    <div className="mainContainer">
-      <Header />
-      <TaskInput onAddTask={handleAddTask} />
+    <div className="main-container">
+      <Pomotomo activeMachine={activeMachine} />
+      {/* <TaskInput
+        onAddTask={handleAddTask}
+        setActiveMachine={setActiveMachine}
+      /> */}
       <TaskList task={task} />
-      <Pomotomo />
+      <Header />
     </div>
   );
 }

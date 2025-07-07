@@ -1,9 +1,8 @@
 function Task({ task }) {
   return (
-    <li>
-      <div className="list-timer">{task.taskTime}</div>
-      <span>{task.taskText}</span>
-      <button>X</button>
+    <li className="task-wrapper">
+      <div className="task-timer">{task.taskTime}</div>
+      <span className="task-text">{task.taskText}</span>
     </li>
   );
 }
