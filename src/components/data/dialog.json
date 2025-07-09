@@ -1,0 +1,51 @@
+{
+  "onAppStart": [
+    { "text": "Hey there! Ready to focus?" },
+    { "text": "Let's get some work done!", "mood": "motivational" },
+    {
+      "text": "Just click on the task for options like edit time, text, delete, and 'mark as complete'."
+    }
+  ],
+  "onButtonClick": [
+    { "text": "Clicky clicky!" },
+    { "text": "That button didn't see it coming." }
+  ],
+  "onMenuOpen": [
+    { "text": "Exploring, are we?" },
+    { "text": "Looking for something?" }
+  ],
+  "onWeatherUpdate": [
+    {
+      "condition": { "always": true },
+      "text": "{{weather}} and {{temp}}°C in {{city}}! Feels like {{tempFeel}}°C. Maybe some inside tasks with the aircon on?"
+    },
+    {
+      "condition": { "weather": "Rain" },
+      "text": "Rainy, rainy {{city}}—perfect for staying inside and getting things done!"
+    },
+    {
+      "condition": { "weather": "Clear", "tempMin": 25 },
+      "text": "It's a bright sunny day— {{temp}}°C and feelin' like {{tempFeel}}°C. Hope you're still feeling motivated!"
+    },
+    {
+      "condition": { "weather": "Snow" },
+      "text": "Snow is falling! {{temp}}°C?? Cozy up and stay focused. "
+    },
+    {
+      "condition": { "weather": "Clouds", "tempMin": 25 },
+      "text": "Cloudy kinda, huh?"
+    },
+    {
+      "condition": { "weather": "Thunderstorm", "tempMin": 25 },
+      "text": "Find a thunder buddy and tackle your list!"
+    },
+    {
+      "condition": { "weather": "Drizzle", "tempMin": 25 },
+      "text": "Will your next task be to not forget your umbrella?"
+    },
+    {
+      "condition": { "weather": "Fog", "tempMin": 25 },
+      "text": "Is it s-s-spooky outside today? Maybe stay in and finish them tasks..."
+    }
+  ]
+}

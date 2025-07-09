@@ -17,6 +17,15 @@
   }
 }
 
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   /* 4. Add accessible line-height */
   line-height: 1.5;

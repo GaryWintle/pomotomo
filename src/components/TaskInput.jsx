@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 function TaskInput({ onAddTask, setActiveMachine }) {
   const [taskText, setTaskText] = useState('');
-  const [taskTime, setTaskTime] = useState(1);
+  const [taskTime, setTaskTime] = useState(0);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -11,7 +11,7 @@ function TaskInput({ onAddTask, setActiveMachine }) {
     console.log(newTask);
     onAddTask(newTask);
     setTaskText('');
-    setTaskTime(1);
+    setTaskTime(0);
   }
 
   function textInput(e) {
@@ -40,7 +40,7 @@ function TaskInput({ onAddTask, setActiveMachine }) {
 
       <input
         type="number"
-        placeHolder="How many minutes do you need?"
+        placeholder="Time to Finish Task"
         value={taskTime}
         onChange={(e) => setTaskTime(e.target.value)}
       ></input>

@@ -1,16 +1,13 @@
 import { useState } from 'react';
-import Header from './components/Header';
+
+import PomoText from './components/PomoText';
+import Pomotomo from './components/Pomotomo';
 import TaskInput from './components/TaskInput';
 import TaskList from './components/TaskList';
 import './reset.css';
 import './index.css';
-import Pomotomo from './components/Pomotomo';
 
-// const testTaskList = [
-//   { id: 1, title: 'Learn React hooks', completed: false },
-//   { id: 2, title: 'Build pomodoro timer', completed: false },
-//   { id: 3, title: 'Style with CSS modules', completed: false },
-// ];
+import Header from './components/Header';
 
 function App() {
   const [task, setTask] = useState([]);
@@ -20,13 +17,34 @@ function App() {
     setTask((tasks) => [...tasks, newTask]);
   }
 
+  fetchData();
+
+  async function fetchData() {
+    try {
+      const response = await fetch(
+        'https://pokeapi.co/api/v2/pokemon/typhlosion'
+      );
+      if (!response.ok) {
+        throw new Error("Couldn't fetch.");
+      }
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div className="main-container">
-      <Pomotomo activeMachine={activeMachine} />
-      {/* <TaskInput
+      <div className="pomotomo-container">
+        <PomoText />
+        <Pomotomo activeMachine={activeMachine} />
+      </div>
+      <TaskInput
         onAddTask={handleAddTask}
         setActiveMachine={setActiveMachine}
-      /> */}
+      />
       <TaskList task={task} />
       <Header />
     </div>
