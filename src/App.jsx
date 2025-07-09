@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import PomoText from './components/PomoText';
 import Pomotomo from './components/Pomotomo';
@@ -15,24 +15,6 @@ function App() {
 
   function handleAddTask(newTask) {
     setTask((tasks) => [...tasks, newTask]);
-  }
-
-  fetchData();
-
-  async function fetchData() {
-    try {
-      const response = await fetch(
-        'https://pokeapi.co/api/v2/pokemon/typhlosion'
-      );
-      if (!response.ok) {
-        throw new Error("Couldn't fetch.");
-      }
-
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
   }
 
   return (

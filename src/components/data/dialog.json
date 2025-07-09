@@ -21,7 +21,7 @@
     },
     {
       "condition": { "weather": "Rain" },
-      "text": "Rainy, rainy {{city}}—perfect for staying inside and getting things done!"
+      "text": "Rainy, rainy {{city}}—perfect for staying inside and getting things done! {{temp}}°C? Zoinks!"
     },
     {
       "condition": { "weather": "Clear", "tempMin": 25 },

@@ -1,12 +1,24 @@
 import { useState, useEffect } from 'react';
 
 function Task({ task }) {
-  const [width, setWidth] = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
+  const [isRunning, setIsRunning] = useState(false);
+  const [countdown, setCountdown] = useState(task.taskTime);
+
+  useEffect(() => {
+    if (!isRunning) return;
+
+    const interval = setInterval(() => {
+      setCountdown((cdown) => cdown - 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [isRunning, setCountdown]);
 
   return (
     <li className="task-wrapper">
-      <div className="task-timer">{task.taskTime}</div>
+      <button className="task-timer" onClick={() => setIsRunning((go) => !go)}>
+        {countdown}
+      </button>
       <span className="task-text">{task.taskText}</span>
     </li>
   );
