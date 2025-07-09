@@ -8,11 +8,22 @@ function Task({ task }) {
     if (!isRunning) return;
 
     const interval = setInterval(() => {
-      setCountdown((cdown) => cdown - 1);
+      setCountdown((cdown) => {
+        if (cdown <= 1) {
+          clearInterval(interval);
+          setIsRunning(false);
+          return 0;
+        }
+        return cdown - 1;
+      });
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isRunning, setCountdown]);
+  }, [isRunning]);
+
+  useEffect(() => {
+    document.title = `${countdown}s`;
+  }, [countdown]);
 
   return (
     <li className="task-wrapper">

@@ -27,7 +27,7 @@ function App() {
         onAddTask={handleAddTask}
         setActiveMachine={setActiveMachine}
       />
-      <TaskList task={task} />
+      <TaskList task={task} onAddTask={handleAddTask} />
       <Header />
     </div>
   );
