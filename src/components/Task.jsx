@@ -4,6 +4,8 @@ function Task({ task }) {
   const [isRunning, setIsRunning] = useState(false);
   const [countdown, setCountdown] = useState(task.taskTime);
 
+  let timerColor = 'var(--neutral-darker) ';
+
   useEffect(() => {
     if (!isRunning) return;
 
@@ -27,7 +29,11 @@ function Task({ task }) {
 
   return (
     <li className="task-wrapper">
-      <button className="task-timer" onClick={() => setIsRunning((go) => !go)}>
+      <button
+        className="task-timer"
+        onClick={() => setIsRunning((go) => !go)}
+        style={{ backgroundColor: timerColor }}
+      >
         {countdown}
       </button>
       <span className="task-text">{task.taskText}</span>

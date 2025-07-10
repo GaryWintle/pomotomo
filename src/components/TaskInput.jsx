@@ -28,7 +28,12 @@ function TaskInput({ onAddTask, setActiveMachine }) {
   }
 
   return (
-    <form className="task-input-container" onSubmit={handleSubmit}>
+    <form
+      role="form"
+      aria-label="Task Input"
+      className="task-input-container"
+      onSubmit={handleSubmit}
+    >
       <input
         type="text"
         placeholder="Enter your Task"
