@@ -11,6 +11,11 @@
     "Afternoon": "What's for lunch, champ?",
     "Evening": "Ah, the night is young, think you can finish up all your stuff?"
   },
+  "holidayDialogs": {
+    "1-1": "Happy New Year! Start you resolutions with a timed task.",
+    "12-25": "Merry Christmas! Hope you're feeling festive.",
+    "10-31": "Boo! Happy Halloween—time to slay tasks, not monsters!"
+  },
   "randomDialogs": [
     "Go ahead and add your tasks, but don't overdo it.",
     "Your tasks aren't your little darlings, slay those dragons.",

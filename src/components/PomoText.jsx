@@ -22,6 +22,11 @@ function getOpeningMessage(weatherMain) {
   if (currentHour < 12) messages.push(dialogData.timeDialogs.Morning);
   else if (currentHour < 18) messages.push(dialogData.timeDialogs.Afternoon);
   else messages.push(dialogData.timeDialogs.Evening);
+  //holidays
+  const today = new Date();
+  const dateKey = `${today.getMonth() + 1}-${today.getDate()}`; // creates "X-X" date
+  const holidayMessage = dialogData.holidayDialogs[dateKey];
+  if (holidayMessage) messages.push(holidayMessage);
   // randoms
   const randomArray = dialogData.randomDialogs;
   const randomPick =
