@@ -12,6 +12,26 @@ async function fetchWeather() {
   return await response.json();
 }
 
+function getOpeningMessage(weatherMain) {
+  const messages = [];
+  // weather based
+  const weatherMessage = dialogData.weatherDialogs[weatherMain];
+  if (weatherMessage) messages.push(weatherMessage);
+  // time based
+  const currentHour = new Date().getHours();
+  if (currentHour < 12) messages.push(dialogData.timeDialogs.Morning);
+  else if (currentHour < 18) messages.push(dialogData.timeDialogs.Afternoon);
+  else messages.push(dialogData.timeDialogs.Evening);
+  // randoms
+  const randomArray = dialogData.randomDialogs;
+  const randomPick =
+    randomArray[Math.floor(Math.random() * randomArray.length)];
+  messages.push(randomPick);
+  //Pick one Opening
+  const finalMessage = messages[Math.floor(Math.random() * messages.length)];
+  return finalMessage || "Let's give it a go.";
+}
+
 export default function PomoText() {
   const [pomoText, setPomoText] = useState("Let's get our groove on!");
 
@@ -20,10 +40,8 @@ export default function PomoText() {
       try {
         const data = await fetchWeather();
         const weatherMain = data.weather[0].main;
-        const message =
-          dialogData.weatherDialogs[weatherMain] ||
-          "Can you see outside? Ah well, let's get started!";
-        setPomoText(message);
+        const openingMessage = getOpeningMessage(weatherMain);
+        setPomoText(openingMessage);
       } catch (error) {
         console.error(error);
         setPomoText('Hmm...');

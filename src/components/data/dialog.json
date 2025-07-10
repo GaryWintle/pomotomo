@@ -5,5 +5,15 @@
     "Rain": "Looks like it's raining. Perfect time to stay in and focus!",
     "Snow": "Snow? Time to get cozy and work!",
     "Thunderstorm": "Stormy skies! Stay safe and productive, thunder buddy."
-  }
+  },
+  "timeDialogs": {
+    "Morning": "Early riser? Oookay, let's go.",
+    "Afternoon": "What's for lunch, champ?",
+    "Evening": "Ah, the night is young, think you can finish up all your stuff?"
+  },
+  "randomDialogs": [
+    "Go ahead and add your tasks, but don't overdo it.",
+    "Your tasks aren't your little darlings, slay those dragons.",
+    "Ahhhh... okay. Giv'er diesel."
+  ]
 }
