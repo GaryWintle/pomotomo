@@ -29,28 +29,48 @@ function TaskInput({ onAddTask, setActiveMachine }) {
 
   return (
     <form
+      className="task-module"
       role="form"
       aria-label="Task Input"
-      className="task-input-container"
       onSubmit={handleSubmit}
     >
-      <input
-        type="text"
-        placeholder="Enter your Task"
-        value={taskText}
-        onChange={textInput}
-        onFocus={handleTextFocus}
-        onBlur={handleTextBlur}
-      ></input>
+      <div className="task-module__group">
+        <label htmlFor="taskText" className="task-module__label">
+          Enter your Task
+        </label>
+        <input
+          className="task-module__input"
+          id="taskText"
+          type="text"
+          placeholder="Enter your Task"
+          name="taskText"
+          value={taskText}
+          onChange={textInput}
+          onFocus={handleTextFocus}
+          onBlur={handleTextBlur}
+          required
+        ></input>
+      </div>
 
-      <input
-        type="number"
-        placeholder="Time to Finish Task"
-        value={taskTime}
-        onChange={(e) => setTaskTime(e.target.value)}
-      ></input>
+      <div className="task-module__group">
+        <label htmlFor="taskTime" className="task-module__label">
+          Time Limit
+        </label>
+        <input
+          className="task-module__input"
+          id="taskTime"
+          type="number"
+          placeholder="0s"
+          value={taskTime}
+          onChange={(e) => setTaskTime(e.target.value)}
+          min="1"
+          required
+        ></input>
+      </div>
 
-      <button>Add Task</button>
+      <button type="submit" className="task-module__button">
+        Add Task
+      </button>
     </form>
   );
 }
