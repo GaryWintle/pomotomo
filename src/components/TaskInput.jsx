@@ -42,7 +42,7 @@ function TaskInput({ onAddTask, setActiveMachine }) {
           className="task-module__input"
           id="taskText"
           type="text"
-          placeholder="Enter your Task"
+          placeholder="What Needs Doing?"
           name="taskText"
           value={taskText}
           onChange={textInput}

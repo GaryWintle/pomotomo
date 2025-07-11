@@ -25,12 +25,12 @@
   --green-dark: #5ab981;
 
   /* Spacing */
-  --space-xs: 0.8em;
-  --space-sm: 1.2em;
-  --space-md: 1.6em;
-  --space-lg: 2.4em;
-  --space-xl: 3.2em;
-  --space-xxl: 4.8em;
+  --space-xs: 0.8rem;
+  --space-sm: 1.2rem;
+  --space-md: 1.6rem;
+  --space-lg: 2.4rem;
+  --space-xl: 3.2rem;
+  --space-xxl: 4.8rem;
 
   /* Border-Radius */
   --br-inside: 2.4rem;
@@ -156,17 +156,48 @@ body {
 .task-module__group {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  align-items: center;
+  gap: var(--space-xs);
 }
 
 .task-module__label {
+  display: block;
   font-size: var(--type-large);
   font-weight: 600;
   color: var(--neutral-black);
 }
 
 .task-module__input {
-  border: 2px solid var(--green-lightest);
+  width: 100%;
+  text-align: center;
+  padding: var(--space-xs) 0;
+  border: 2px solid var(--neutral-mid);
   font-size: var(--type-medium);
   border-radius: var(--br-inside);
+  box-shadow: inset 0 3px 2px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-module__input::placeholder {
+  color: var(--neutral-dark);
+  text-align: center;
+  font-weight: 500;
+}
+
+.task-module__input:focus {
+  border-color: var(--green-mid);
+  box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+  outline: none;
+}
+
+.task-module__button {
+  align-self: center;
+  font-size: var(--type-large);
+  font-weight: 800;
+  text-transform: uppercase;
+  background-color: var(--green-mid);
+  color: var(--neutral-white);
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--br-outside);
+  box-shadow: inset 0 -2px 0 var(--green-dark), inset 0 2px 0 var(--green-light);
 }
