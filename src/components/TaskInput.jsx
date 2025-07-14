@@ -146,7 +146,9 @@ function TaskInput({ onAddTask, setActiveMachine }) {
               5m
             </button>
           </div>
-          <button onClick={() => setTaskTime(0)}>Clear</button>
+          <button type="button" onClick={() => setTaskTime(0)}>
+            Clear
+          </button>
         </div>
       </div>
 
