@@ -6,11 +6,11 @@
 
   /* Neutrals */
   --neutral-white: #fff;
-  --neutral-light: #f2f2f2;
-  --neutral-mid: #dadada;
-  --neutral-dark: #bababa;
-  --neutral-darker: #a8a8a8;
-  --neutral-black: #4d4d4d;
+  --neutral-light: #f3f5f7;
+  --neutral-mid: #f1f3f5;
+  --neutral-dark: #b3bac1;
+  --neutral-darker: #9ba8b5;
+  --neutral-black: #454d54;
 
   /* Reds */
   --red-light: #ff8080;
@@ -33,8 +33,8 @@
   --space-xxl: 4.8rem;
 
   /* Border-Radius */
-  --br-inside: 2.4rem;
-  --br-outside: 3.6rem;
+  --br-inside: 1.6rem;
+  --br-outside: 2.4rem;
 
   /* Typography */
 
@@ -47,13 +47,13 @@
 }
 
 body {
-  background: var(--neutral-white);
+  background: var(--neutral-mid);
   /* border: 3px solid red; */
 }
 
 .main-container {
   /* border: 3px solid rgb(162, 0, 255); */
-  margin: 8.2rem 2.4rem 2.4rem;
+  margin: var(--space-lg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,7 +75,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.6rem;
+  gap: var(--space-md);
 }
 
 /* Task List Item */
@@ -87,9 +87,9 @@ body {
   width: min(100%, 50rem);
   font-size: var(--type-medium);
   font-weight: 500;
-  padding: 0.8rem 1.6rem;
+  padding: var(--space-xs) var(--space-md);
   border-radius: var(--br-outside);
-  gap: 1.6rem;
+  gap: var(--space-md);
   border: 2px solid var(--neutral-light);
   background-color: var(--neutral-white);
   box-shadow: 0 27px 16px 0 hsla(0, 0%, 0%, 0.03),
@@ -154,6 +154,7 @@ body {
 }
 
 .task-module__group {
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -171,11 +172,41 @@ body {
   width: 100%;
   text-align: center;
   padding: var(--space-xs) 0;
-  border: 2px solid var(--neutral-mid);
+  border: 2px solid var(--green-mid);
+  background-color: var(--green-lightest);
   font-size: var(--type-medium);
   border-radius: var(--br-inside);
   box-shadow: inset 0 3px 2px rgba(0, 0, 0, 0.05);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-module__time-wrapper {
+  border: 2px solid var(--neutral-mid);
+  padding: 2.4rem;
+  border-radius: var(--br-inside);
+}
+
+.task-module__time-input {
+  display: flex;
+  align-items: center;
+}
+
+.task-module__time-change {
+  font-size: 3.2rem;
+  color: var(--green-mid);
+  background-color: var(--neutral-white);
+  font-weight: 900;
+  border: 2px solid var(--green-light);
+  padding: 0 1.6rem;
+  border-radius: 5.6rem;
+}
+
+.task-module__number-input {
+  width: 100%;
+  text-align: center;
+  padding: var(--space-xs) 0;
+  border: 0 solid var(--green-mid);
+  font-size: 3.6rem;
 }
 
 .task-module__input::placeholder {
@@ -187,6 +218,12 @@ body {
 .task-module__input:focus {
   border-color: var(--green-mid);
   box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+  outline: none;
+}
+
+.task-module__number-input:focus {
+  border: 0 solid #000;
+  box-shadow: 0 0 0 0 rgba(0, 112, 243, 0.2);
   outline: none;
 }
 

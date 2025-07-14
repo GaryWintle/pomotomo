@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 function TaskInput({ onAddTask, setActiveMachine }) {
   const [taskText, setTaskText] = useState('');
-  const [taskTime, setTaskTime] = useState(0);
+  const [taskTime, setTaskTime] = useState(null);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -42,13 +42,12 @@ function TaskInput({ onAddTask, setActiveMachine }) {
           className="task-module__input"
           id="taskText"
           type="text"
-          placeholder="What Needs Doing?"
+          placeholder=""
           name="taskText"
           value={taskText}
           onChange={textInput}
           onFocus={handleTextFocus}
           onBlur={handleTextBlur}
-          required
         ></input>
       </div>
 
@@ -56,16 +55,26 @@ function TaskInput({ onAddTask, setActiveMachine }) {
         <label htmlFor="taskTime" className="task-module__label">
           Time Limit
         </label>
-        <input
-          className="task-module__input"
-          id="taskTime"
-          type="number"
-          placeholder="0s"
-          value={taskTime}
-          onChange={(e) => setTaskTime(e.target.value)}
-          min="1"
-          required
-        ></input>
+        <div className="task-module__time-wrapper">
+          <div className="task-module__time-input">
+            <button className="task-module__time-change task-module__time-change--decrease">
+              -
+            </button>
+            <input
+              className="task-module__number-input"
+              id="taskTime"
+              type="text"
+              placeholder="00:00"
+              value={taskTime}
+              onChange={(e) => setTaskTime(e.target.value)}
+              min="1"
+            ></input>
+            <button className="task-module__time-change task-module__time-change--increase">
+              +
+            </button>
+          </div>
+          <p>1 hour & 15 minutes</p>
+        </div>
       </div>
 
       <button type="submit" className="task-module__button">
