@@ -1,18 +1,11 @@
 import { useState, useEffect } from 'react';
+import { formatTime } from './utils/timeUtils';
 
 function Task({ task }) {
   const [isRunning, setIsRunning] = useState(false);
   const [countdown, setCountdown] = useState(task.taskTime);
 
   let timerColor = 'var(--green-mid) ';
-
-  function formatTime(countdown) {
-    let hours = Math.floor(countdown / 3600);
-    let minutes = Math.floor((countdown % 3600) / 60);
-    let seconds = Math.floor(countdown % 60);
-    const pad = (num) => String(num).padStart(2, '0');
-    return `${hours}h${pad(minutes)}m${pad(seconds)}`;
-  }
 
   useEffect(() => {
     if (!isRunning) return;

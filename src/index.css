@@ -44,6 +44,10 @@
   --type-large: 2.4rem;
 
   /* weight */
+
+  --elevation-90--near: 0rem 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  --elevation-90--far: 0rem 1.25rem 2.5rem rgba(0, 0, 0, 0.08);
+  --elevation-90: var(--elevation-90--near), var(--elevation-90--far);
 }
 
 body {
@@ -148,9 +152,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
-  box-shadow: 0 27px 16px 0 hsla(0, 0%, 0%, 0.03),
+  /* box-shadow: 0 27px 16px 0 hsla(0, 0%, 0%, 0.03),
     0 3px 7px 0 hsla(0, 0%, 0%, 0.06), 0 12px 12px 0 hsla(0, 0%, 0%, 0.05),
-    inset 0 -1px 0 var(--green-lightest);
+    inset 0 -1px 0 var(--green-lightest); */
+  box-shadow: var(--elevation-90);
 }
 
 .task-module__group {
