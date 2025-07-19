@@ -1,0 +1,14 @@
+.container {
+  margin: 24px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.presetButton {
+  color: white;
+  font-size: 20px;
+  background-color: #2bce8b;
+  border-radius: 16px;
+  padding: 12px 12px;
+}

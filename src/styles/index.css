@@ -53,6 +53,13 @@ body {
   /* border: 3px solid red; */
 }
 
+/* TYPOGRAPHY */
+.task-module__label {
+  font-size: var(--type-large);
+  font-weight: 600;
+  color: var(--neutral-black);
+}
+
 .main-container {
   /* border: 3px solid rgb(162, 0, 255); */
   margin: var(--space-lg);
@@ -63,114 +70,4 @@ body {
   min-height: calc(100vh - 10.6rem);
   /* margin: 24px; */
   gap: 4.8rem;
-}
-
-.header {
-  color: var(--neutral-light);
-}
-
-.tasks-container {
-  /* border: 3px solid rgb(72, 255, 0); */
-  width: min(100%, 90rem);
-  /* max-width: 100%; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
-}
-
-/* Task List Item */
-
-/* Pomotomo */
-
-/* Task Module */
-
-.task-module__group {
-  /* border: 1px solid red; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-xs);
-}
-
-.task-module__label {
-  display: block;
-  font-size: var(--type-large);
-  font-weight: 600;
-  color: var(--neutral-black);
-}
-
-.task-module__input {
-  width: 100%;
-  text-align: center;
-  padding: var(--space-xs) 0;
-  border: 2px solid var(--green-mid);
-  background-color: var(--green-lightest);
-  font-size: var(--type-medium);
-  border-radius: var(--br-inside);
-  box-shadow: inset 0 3px 2px rgba(0, 0, 0, 0.05);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.task-module__time-wrapper {
-  border: 2px solid var(--neutral-mid);
-  padding: 2.4rem;
-  border-radius: var(--br-inside);
-}
-
-.task-module__time-input {
-  display: flex;
-  align-items: center;
-}
-
-.task-module__time-change {
-  font-size: 3.2rem;
-  color: var(--green-mid);
-  background-color: var(--neutral-white);
-  font-weight: 900;
-  border: 2px solid var(--green-light);
-  padding: 0 1.6rem;
-  border-radius: 5.6rem;
-}
-
-.task-module__number-input {
-  width: 100%;
-  text-align: center;
-  padding: var(--space-xs) 0;
-  border: 0 solid var(--green-mid);
-  font-size: 3.6rem;
-}
-
-.task-module__input::placeholder {
-  color: var(--neutral-dark);
-  text-align: center;
-  font-weight: 500;
-}
-
-.task-module__input:focus {
-  border-color: var(--green-mid);
-  box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
-  outline: none;
-}
-
-.task-module__number-input:focus {
-  border: 0 solid #000;
-  box-shadow: 0 0 0 0 rgba(0, 112, 243, 0.2);
-  outline: none;
-}
-
-.time-preset__container {
-  margin: 24px 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.time-preset {
-  color: white;
-  font-size: 20px;
-  background-color: #2bce8b;
-  border-radius: 16px;
-  padding: 12px 12px;
 }

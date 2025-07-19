@@ -1,0 +1,25 @@
+.container {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.input {
+  width: 100%;
+  text-align: center;
+  padding: var(--space-xs) 0;
+  border: 2px solid var(--green-mid);
+  background-color: var(--green-lightest);
+  font-size: var(--type-medium);
+  border-radius: var(--br-inside);
+  box-shadow: inset 0 3px 2px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+  border-color: var(--green-mid);
+  box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+  outline: none;
+}

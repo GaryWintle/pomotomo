@@ -1,5 +1,6 @@
 import TimePresets from '../TimePresets/TimePresets';
 import { formatReadableTime } from '../../utils/timeUtils';
+import styles from './TimeInput.module.css';
 
 const TimeInput = ({ taskTime, setTaskTime }) => {
   const increment = (amount) => {
@@ -10,29 +11,30 @@ const TimeInput = ({ taskTime, setTaskTime }) => {
   };
 
   return (
-    <div className="task-module__group">
+    <div className={styles.container}>
       <label htmlFor="taskTime" className="task-module__label">
         Time Limit
       </label>
-      <div className="task-module__time-wrapper">
-        <div className="task-module__time-input">
+      <div className={styles.lineWrapper}>
+        <div className={styles.inputWrapper}>
           <button
             type="button"
             onClick={() => decrement(60)}
-            className="task-module__time-change task-module__time-change--decrease"
+            className={styles.button}
           >
             -
           </button>
           <input
-            className="task-module__number-input"
+            className={styles.time}
             id="taskTime"
             type="text"
             value={formatReadableTime(taskTime)}
+            disabled
           ></input>
           <button
             type="button"
             onClick={() => increment(60)}
-            className="task-module__time-change task-module__time-change--increase"
+            className={styles.button}
           >
             +
           </button>

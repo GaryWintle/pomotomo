@@ -1,11 +1,13 @@
+import styles from './TextInput.module.css';
+
 const TextInput = ({ taskText, setTaskText, setActiveMachine }) => {
   return (
-    <div className="task-module__group">
+    <div className={styles.container}>
       <label htmlFor="taskText" className="task-module__label">
         Enter your Task
       </label>
       <input
-        className="task-module__input"
+        className={styles.input}
         id="taskText"
         type="text"
         name="taskText"
