@@ -1,5 +1,5 @@
-import TimePresets from './TimePresets';
-import { formatReadableTime } from './utils/timeUtils';
+import TimePresets from '../TimePresets/TimePresets';
+import { formatReadableTime } from '../../utils/timeUtils';
 
 const TimeInput = ({ taskTime, setTaskTime }) => {
   const increment = (amount) => {

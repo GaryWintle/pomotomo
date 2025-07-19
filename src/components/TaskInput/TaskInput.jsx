@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import styles from './TaskInput.module.css';
 
-import TextInput from './TextInput';
-import TimeInput from './TimeInput';
+import TextInput from '../TextInput/TextInput';
+import TimeInput from '../TimeInput/TimeInput';
 
 function TaskInput({ onAddTask, setActiveMachine }) {
   const [taskText, setTaskText] = useState('');
@@ -18,7 +19,7 @@ function TaskInput({ onAddTask, setActiveMachine }) {
   }
 
   return (
-    <form className="task-module" onSubmit={handleSubmit}>
+    <form className={styles.container} onSubmit={handleSubmit}>
       <TextInput
         taskText={taskText}
         setTaskText={setTaskText}
@@ -27,7 +28,7 @@ function TaskInput({ onAddTask, setActiveMachine }) {
 
       <TimeInput taskTime={taskTime} setTaskTime={setTaskTime} />
 
-      <button type="submit" className="task-module__button">
+      <button type="submit" className={styles.button}>
         Add Task
       </button>
     </form>

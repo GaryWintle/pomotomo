@@ -1,13 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import PomoText from './components/PomoText';
-import Pomotomo from './components/Pomotomo';
-import TaskInput from './components/TaskInput';
-import TaskList from './components/TaskList';
-import './reset.css';
-import './index.css';
-
-import Header from './components/Header';
+import PomoText from './components/PomoText/PomoText';
+import Pomotomo from './components/Pomotomo/Pomotomo';
+import TaskInput from './components/TaskInput/TaskInput';
+import TaskList from './components/TaskList/TaskList';
 
 function App() {
   const [task, setTask] = useState([]);
@@ -19,16 +15,13 @@ function App() {
 
   return (
     <div className="main-container">
-      <div className="pomotomo-container">
-        <PomoText />
-        <Pomotomo activeMachine={activeMachine} />
-      </div>
+      <PomoText />
+      <Pomotomo activeMachine={activeMachine} />
       <TaskInput
         onAddTask={handleAddTask}
         setActiveMachine={setActiveMachine}
       />
       <TaskList task={task} onAddTask={handleAddTask} />
-      <Header />
     </div>
   );
 }

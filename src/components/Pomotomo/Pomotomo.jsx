@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useRive, Layout, Fit, Alignment } from '@rive-app/react-canvas-lite';
+import styles from './Pomotomo.module.css';
 
 export default function Pomotomo({ activeMachine }) {
   const { rive, RiveComponent } = useRive({
@@ -14,7 +15,7 @@ export default function Pomotomo({ activeMachine }) {
   }, [rive, activeMachine]);
 
   return (
-    <div className="riveContainer">
+    <div className={styles.container}>
       <RiveComponent />
     </div>
   );

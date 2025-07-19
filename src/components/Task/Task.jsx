@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { formatTime } from './utils/timeUtils';
+import { formatTime } from '../../utils/timeUtils';
+import styles from './Task.module.css';
 
 function Task({ task }) {
   const [isRunning, setIsRunning] = useState(false);
@@ -29,16 +30,16 @@ function Task({ task }) {
   }, [countdown]);
 
   return (
-    <li className="task-wrapper">
+    <li className={styles.task}>
       <button
-        className="task-timer"
+        className={styles.timer}
         onClick={() => setIsRunning((go) => !go)}
         style={{ backgroundColor: timerColor }}
       >
         {formatTime(countdown)}
         {/* {countdown} */}
       </button>
-      <span className="task-text">{task.taskText}</span>
+      <span className={styles.text}>{task.taskText}</span>
     </li>
   );
 }
