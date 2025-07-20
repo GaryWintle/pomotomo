@@ -26,6 +26,10 @@
     var(--dropshadow-green-deep);
 }
 
+.closeButton {
+  align-self: center;
+}
+
 .closeButton img {
   width: 5rem;
   padding: 1.2rem;

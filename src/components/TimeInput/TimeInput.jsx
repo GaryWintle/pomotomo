@@ -1,6 +1,8 @@
 import TimePresets from '../TimePresets/TimePresets';
 import { formatReadableTime } from '../../utils/timeUtils';
 import styles from './TimeInput.module.css';
+import minus from '../../assets/minus.svg';
+import plus from '../../assets/plus.svg';
 
 const TimeInput = ({ taskTime, setTaskTime }) => {
   const increment = (amount) => {
@@ -22,7 +24,7 @@ const TimeInput = ({ taskTime, setTaskTime }) => {
             onClick={() => decrement(60)}
             className={styles.button}
           >
-            -
+            <img src={minus} alt="minus 1 minute" />
           </button>
           <input
             className={styles.time}
@@ -36,7 +38,7 @@ const TimeInput = ({ taskTime, setTaskTime }) => {
             onClick={() => increment(60)}
             className={styles.button}
           >
-            +
+            <img src={plus} alt="plus 1 minute" />
           </button>
         </div>
         <TimePresets setTaskTime={setTaskTime} />

@@ -4,7 +4,7 @@ import TimeInput from '../TimeInput/TimeInput';
 import styles from './TaskInput.module.css';
 import close from '../../assets/xplus.svg';
 
-function TaskInput({ onAddTask, setActiveMachine }) {
+function TaskInput({ onAddTask, setModuleOpen, setActiveMachine }) {
   const [taskText, setTaskText] = useState('');
   const [taskTime, setTaskTime] = useState(0);
 
@@ -31,8 +31,13 @@ function TaskInput({ onAddTask, setActiveMachine }) {
       <button type="submit" className={styles.addButton}>
         Add Task
       </button>
+
       <button type="button" className={styles.closeButton}>
-        <img src={close} alt="close button" />
+        <img
+          src={close}
+          alt="close button"
+          onClick={() => setModuleOpen((prev) => !prev)}
+        />
       </button>
     </form>
   );

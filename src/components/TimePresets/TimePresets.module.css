@@ -1,7 +1,8 @@
 .container {
-  margin: var(--space-lg) 0;
+  margin: var(--space-md) 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   row-gap: var(--space-sm);
   column-gap: var(--space-xs);
 }
@@ -19,5 +20,6 @@
 }
 
 .reset {
+  margin-top: var(--space-sm);
   padding: var(--space-xs) var(--space-lg);
 }

@@ -3,12 +3,12 @@
   font-family: Roboto, Helvetica, Arial, sans-serif;
 
   /* Neutrals */
-  --neutral-white: #fff;
-  --neutral-light: #f3f5f7;
-  --neutral-mid: #f1f3f5;
-  --neutral-dark: #b3bac1;
-  --neutral-darker: #9ba8b5;
-  --neutral-black: #454d54;
+  --neutral-white: hsl(0, 0%, 100%);
+  --neutral-light: hsl(210, 17%, 95%);
+  --neutral-mid: hsl(210, 17%, 95%);
+  --neutral-dark: hsl(210, 20%, 78%);
+  --neutral-darker: hsl(210, 15%, 66%);
+  --neutral-black: hsl(208, 10%, 30%);
 
   /* Reds */
   --red-light: hsl(0, 100%, 75%);
@@ -61,7 +61,7 @@
 }
 
 body {
-  background: var(--neutral-mid);
+  background: var(--neutral-light);
   /* border: 3px solid red; */
 }
 
