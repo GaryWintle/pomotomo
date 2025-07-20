@@ -13,7 +13,7 @@
   box-shadow: var(--elevation-90);
 }
 
-.button {
+.addButton {
   align-self: center;
   font-size: var(--type-large);
   font-weight: 800;
@@ -22,5 +22,15 @@
   color: var(--neutral-white);
   padding: var(--space-sm) var(--space-xl);
   border-radius: var(--br-outside);
-  box-shadow: inset 0 -2px 0 var(--green-dark), inset 0 2px 0 var(--green-light);
+  box-shadow: inset 0 -2px 0 var(--green-dark), inset 0 2px 0 var(--green-light),
+    var(--dropshadow-green-deep);
+}
+
+.closeButton img {
+  width: 5rem;
+  padding: 1.2rem;
+  background: var(--red-gradient);
+  border-radius: 50%;
+  box-shadow: inset 0 3px 0 var(--red-light), 0 3px 0 var(--red-dark),
+    var(--dropshadow-red-deep);
 }

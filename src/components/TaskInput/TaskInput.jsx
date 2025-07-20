@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import styles from './TaskInput.module.css';
-
 import TextInput from '../TextInput/TextInput';
 import TimeInput from '../TimeInput/TimeInput';
+import styles from './TaskInput.module.css';
+import close from '../../assets/xplus.svg';
 
 function TaskInput({ onAddTask, setActiveMachine }) {
   const [taskText, setTaskText] = useState('');
@@ -28,8 +28,11 @@ function TaskInput({ onAddTask, setActiveMachine }) {
 
       <TimeInput taskTime={taskTime} setTaskTime={setTaskTime} />
 
-      <button type="submit" className={styles.button}>
+      <button type="submit" className={styles.addButton}>
         Add Task
+      </button>
+      <button type="button" className={styles.closeButton}>
+        <img src={close} alt="close button" />
       </button>
     </form>
   );
