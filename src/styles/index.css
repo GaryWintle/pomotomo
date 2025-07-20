@@ -82,5 +82,5 @@ body {
   /* width: min(100%, 900rem); */
   min-height: calc(100vh - 10.6rem);
   /* margin: 24px; */
-  gap: 4.8rem;
+  gap: var(--space-lg);
 }

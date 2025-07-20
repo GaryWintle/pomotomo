@@ -9,7 +9,7 @@ import OpenButton from './components/Buttons/OpenButton';
 function App() {
   const [task, setTask] = useState([]);
   const [activeMachine, setActiveMachine] = useState('bounceAnim');
-  const [moduleOpen, setModuleOpen] = useState(true);
+  const [moduleOpen, setModuleOpen] = useState(false);
 
   function handleAddTask(newTask) {
     setTask((tasks) => [...tasks, newTask]);
