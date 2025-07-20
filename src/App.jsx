@@ -19,6 +19,8 @@ function App() {
     <div className="main-container">
       <PomoText />
       <Pomotomo activeMachine={activeMachine} />
+      <TaskList task={task} onAddTask={handleAddTask} />
+      {!moduleOpen && <OpenButton setModuleOpen={setModuleOpen} />}
       {moduleOpen && (
         <TaskInput
           onAddTask={handleAddTask}
@@ -26,8 +28,6 @@ function App() {
           setModuleOpen={setModuleOpen}
         />
       )}
-      <TaskList task={task} onAddTask={handleAddTask} />
-      {!moduleOpen && <OpenButton setModuleOpen={setModuleOpen} />}
     </div>
   );
 }
