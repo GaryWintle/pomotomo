@@ -1,5 +1,6 @@
 import styles from './TimePresets.module.css';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 
 const TimePresets = ({ setTaskTime }) => {
   const presets = [10800, 7200, 3600, 1800, 900, 600, 300];
@@ -11,23 +12,25 @@ const TimePresets = ({ setTaskTime }) => {
     <>
       <div className={styles.container}>
         {presets.map((seconds) => (
-          <button
+          <motion.button
             key={seconds}
             type="button"
             className={styles.button}
             onClick={() => increment(seconds)}
+            whileTap={{ scale: 0.95 }}
           >
             {seconds >= 3600 ? `${seconds / 3600}h` : `${seconds / 60}m`}
-          </button>
+          </motion.button>
         ))}
 
-        <button
+        <motion.button
           className={clsx(styles.button, styles.reset)}
           type="button"
           onClick={() => setTaskTime(0)}
+          whileTap={{ scale: 0.95 }}
         >
           Clear
-        </button>
+        </motion.button>
       </div>
     </>
   );

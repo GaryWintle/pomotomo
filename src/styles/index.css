@@ -83,4 +83,5 @@ body {
   min-height: calc(100vh - 10.6rem);
   /* margin: 24px; */
   gap: var(--space-lg);
+  /* overflow: hidden; */
 }

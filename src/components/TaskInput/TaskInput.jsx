@@ -1,4 +1,5 @@
 import { useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import TextInput from '../TextInput/TextInput';
 import TimeInput from '../TimeInput/TimeInput';
@@ -23,10 +24,10 @@ function TaskInput({ onAddTask, setModuleOpen, setActiveMachine }) {
     <motion.form
       className={styles.container}
       onSubmit={handleSubmit}
-      initial={{ opacity: 0, y: 25, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: 25, scale: 0.95 }}
-      transition={{ duration: 0.2 }}
+      initial={{ opacity: 1, y: 600 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 1, y: 600 }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
     >
       <TextInput
         taskText={taskText}

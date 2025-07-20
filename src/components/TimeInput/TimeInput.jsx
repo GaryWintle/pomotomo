@@ -3,6 +3,7 @@ import { formatReadableTime } from '../../utils/timeUtils';
 import styles from './TimeInput.module.css';
 import minus from '../../assets/minus.svg';
 import plus from '../../assets/plus.svg';
+import { motion } from 'framer-motion';
 
 const TimeInput = ({ taskTime, setTaskTime }) => {
   const increment = (amount) => {
@@ -19,13 +20,14 @@ const TimeInput = ({ taskTime, setTaskTime }) => {
       </label>
       <div className={styles.lineWrapper}>
         <div className={styles.inputWrapper}>
-          <button
+          <motion.button
             type="button"
             onClick={() => decrement(60)}
             className={styles.button}
+            whileTap={{ scale: 0.95 }}
           >
             <img src={minus} alt="minus 1 minute" />
-          </button>
+          </motion.button>
           <input
             className={styles.time}
             id="taskTime"
@@ -33,13 +35,14 @@ const TimeInput = ({ taskTime, setTaskTime }) => {
             value={formatReadableTime(taskTime)}
             disabled
           ></input>
-          <button
+          <motion.button
             type="button"
             onClick={() => increment(60)}
             className={styles.button}
+            whileTap={{ scale: 0.95 }}
           >
             <img src={plus} alt="plus 1 minute" />
-          </button>
+          </motion.button>
         </div>
         <TimePresets setTaskTime={setTaskTime} />
       </div>
