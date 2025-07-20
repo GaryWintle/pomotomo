@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import TextInput from '../TextInput/TextInput';
 import TimeInput from '../TimeInput/TimeInput';
 import styles from './TaskInput.module.css';
@@ -19,27 +20,35 @@ function TaskInput({ onAddTask, setModuleOpen, setActiveMachine }) {
   }
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit}>
-      <TextInput
-        taskText={taskText}
-        setTaskText={setTaskText}
-        setActiveMachine={setActiveMachine}
-      />
-
-      <TimeInput taskTime={taskTime} setTaskTime={setTaskTime} />
-
-      <button type="submit" className={styles.addButton}>
-        Add Task
-      </button>
-
-      <button type="button" className={styles.closeButton}>
-        <img
-          src={close}
-          alt="close button"
-          onClick={() => setModuleOpen((prev) => !prev)}
+    <motion.div
+      className="modal"
+      initial={{ opacity: 0, y: 25, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 25, scale: 0.95 }}
+      transition={{ duration: 0.2 }}
+    >
+      <form className={styles.container} onSubmit={handleSubmit}>
+        <TextInput
+          taskText={taskText}
+          setTaskText={setTaskText}
+          setActiveMachine={setActiveMachine}
         />
-      </button>
-    </form>
+
+        <TimeInput taskTime={taskTime} setTaskTime={setTaskTime} />
+
+        <button type="submit" className={styles.addButton}>
+          Add Task
+        </button>
+
+        <button type="button" className={styles.closeButton}>
+          <img
+            src={close}
+            alt="close button"
+            onClick={() => setModuleOpen((prev) => !prev)}
+          />
+        </button>
+      </form>
+    </motion.div>
   );
 }
 

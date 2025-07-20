@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { AnimatePresence } from 'framer-motion';
 import PomoText from './components/PomoText/PomoText';
 import Pomotomo from './components/Pomotomo/Pomotomo';
 import TaskInput from './components/TaskInput/TaskInput';
@@ -21,13 +21,15 @@ function App() {
       <Pomotomo activeMachine={activeMachine} />
       <TaskList task={task} onAddTask={handleAddTask} />
       {!moduleOpen && <OpenButton setModuleOpen={setModuleOpen} />}
-      {moduleOpen && (
-        <TaskInput
-          onAddTask={handleAddTask}
-          setActiveMachine={setActiveMachine}
-          setModuleOpen={setModuleOpen}
-        />
-      )}
+      <AnimatePresence>
+        {moduleOpen && (
+          <TaskInput
+            onAddTask={handleAddTask}
+            setActiveMachine={setActiveMachine}
+            setModuleOpen={setModuleOpen}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
