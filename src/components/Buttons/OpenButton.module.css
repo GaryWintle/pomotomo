@@ -1,0 +1,12 @@
+.openButton {
+  align-self: center;
+}
+
+.openButton img {
+  width: 5rem;
+  padding: 1.2rem;
+  background: var(--green-gradient);
+  border-radius: 50%;
+  box-shadow: inset 0 3px 0 var(--green-light), 0 3px 0 var(--green-dark),
+    var(--dropshadow-green-deep);
+}

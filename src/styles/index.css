@@ -24,6 +24,7 @@
   --green-mid: #2bce8b;
   --green-dark: #5ab981;
   --green-black: hsl(167, 38%, 41%);
+  --green-gradient: linear-gradient(var(--green-light), var(--green-mid));
 
   /* Spacing */
   --space-xs: 0.8rem;

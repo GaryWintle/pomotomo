@@ -4,6 +4,7 @@ import PomoText from './components/PomoText/PomoText';
 import Pomotomo from './components/Pomotomo/Pomotomo';
 import TaskInput from './components/TaskInput/TaskInput';
 import TaskList from './components/TaskList/TaskList';
+import OpenButton from './components/Buttons/OpenButton';
 
 function App() {
   const [task, setTask] = useState([]);
@@ -26,6 +27,7 @@ function App() {
         />
       )}
       <TaskList task={task} onAddTask={handleAddTask} />
+      <OpenButton setModuleOpen={setModuleOpen} />
     </div>
   );
 }
