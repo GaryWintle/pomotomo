@@ -24,9 +24,9 @@ function TaskInput({ onAddTask, setModuleOpen, setActiveMachine }) {
     <motion.form
       className={styles.container}
       onSubmit={handleSubmit}
-      initial={{ opacity: 1, y: 600 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 1, y: 600 }}
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
     >
       <TextInput
