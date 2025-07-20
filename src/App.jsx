@@ -27,7 +27,7 @@ function App() {
         />
       )}
       <TaskList task={task} onAddTask={handleAddTask} />
-      <OpenButton setModuleOpen={setModuleOpen} />
+      {!moduleOpen && <OpenButton setModuleOpen={setModuleOpen} />}
     </div>
   );
 }
