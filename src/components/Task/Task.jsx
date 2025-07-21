@@ -7,6 +7,7 @@ function Task({ task }) {
   const [countdown, setCountdown] = useState(task.taskTime);
 
   let timerColor = 'var(--green-mid) ';
+  let timesOut = 'var(--red-mid) ';
 
   useEffect(() => {
     if (!isRunning) return;
@@ -33,8 +34,12 @@ function Task({ task }) {
     <li className={styles.task}>
       <button
         className={styles.timer}
-        onClick={() => setIsRunning((go) => !go)}
-        style={{ backgroundColor: timerColor }}
+        onClick={() => setIsRunning((prev) => !prev)}
+        style={
+          countdown < 60
+            ? { backgroundColor: timesOut }
+            : { backgroundColor: timerColor }
+        }
       >
         {formatTime(countdown)}
       </button>
