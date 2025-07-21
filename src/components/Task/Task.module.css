@@ -24,8 +24,8 @@
   box-shadow: inset 0 1px var(--green-light), 0 2px 0 var(--green-dark);
   border-radius: var(--br-inside);
   padding: 0.4rem 0.8rem;
-  width: min(100%, 150px);
   text-align: center;
+  min-width: 7rem;
 }
 
 .task-text {

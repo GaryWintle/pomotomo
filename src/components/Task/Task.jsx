@@ -37,7 +37,6 @@ function Task({ task }) {
         style={{ backgroundColor: timerColor }}
       >
         {formatTime(countdown)}
-        {/* {countdown} */}
       </button>
       <span className={styles.text}>{task.taskText}</span>
     </li>

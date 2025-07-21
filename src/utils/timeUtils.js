@@ -16,5 +16,14 @@ export function formatTime(countdown) {
   let minutes = Math.floor((countdown % 3600) / 60);
   let seconds = Math.floor(countdown % 60);
   const pad = (num) => String(num).padStart(2, '0');
-  return `${hours}h${pad(minutes)}m${pad(seconds)}`;
+
+  if (countdown <= 60) {
+    return `${seconds}s`;
+  }
+
+  if (hours === 0) {
+    return `${minutes}m`;
+  }
+
+  return `${hours}:${pad(minutes)}h`;
 }
