@@ -4,6 +4,7 @@ import styles from './TimeInput.module.css';
 import minus from '../../assets/minus.svg';
 import plus from '../../assets/plus.svg';
 import { motion } from 'framer-motion';
+import { inputButtonVariants } from '../../utils/motionPresets';
 
 const TimeInput = ({ taskTime, setTaskTime }) => {
   const increment = (amount) => {
@@ -24,22 +25,33 @@ const TimeInput = ({ taskTime, setTaskTime }) => {
             type="button"
             onClick={() => decrement(60)}
             className={styles.button}
-            whileTap={{ scale: 0.95 }}
+            variants={inputButtonVariants}
+            initial={'rest'}
+            whileHover={'hover'}
+            whileTap={'tap'}
           >
             <img src={minus} alt="minus 1 minute" />
           </motion.button>
-          <input
+          <motion.input
             className={styles.time}
             id="taskTime"
             type="text"
             value={formatReadableTime(taskTime)}
+            key={taskTime}
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 300 }}
             disabled
-          ></input>
+          ></motion.input>
           <motion.button
             type="button"
             onClick={() => increment(60)}
             className={styles.button}
-            whileTap={{ scale: 0.95 }}
+            variants={inputButtonVariants}
+            initial={'rest'}
+            whileHover={'hover'}
+            whileTap={'tap'}
           >
             <img src={plus} alt="plus 1 minute" />
           </motion.button>

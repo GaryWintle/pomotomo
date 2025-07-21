@@ -16,7 +16,7 @@
   background-color: var(--neutral-white);
   border-radius: 16px;
   padding: var(--space-sm) var(--space-sm);
-  box-shadow: 0 1px 0 var(--green-mid), var(--dropshadow-green-shallow);
+  /* box-shadow: 0 1px 0 var(--green-mid), var(--dropshadow-green-shallow); */
 }
 
 .reset {
