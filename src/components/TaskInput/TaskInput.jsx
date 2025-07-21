@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import TextInput from '../TextInput/TextInput';
 import TimeInput from '../TimeInput/TimeInput';
 import styles from './TaskInput.module.css';
@@ -21,34 +21,36 @@ function TaskInput({ onAddTask, setModuleOpen, setActiveMachine }) {
   }
 
   return (
-    <motion.form
-      className={styles.container}
-      onSubmit={handleSubmit}
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
-    >
-      <TextInput
-        taskText={taskText}
-        setTaskText={setTaskText}
-        setActiveMachine={setActiveMachine}
-      />
-
-      <TimeInput taskTime={taskTime} setTaskTime={setTaskTime} />
-
-      <button type="submit" className={styles.addButton}>
-        Add Task
-      </button>
-
-      <button type="button" className={styles.closeButton}>
-        <img
-          src={close}
-          alt="close button"
-          onClick={() => setModuleOpen((prev) => !prev)}
+    <AnimatePresence>
+      <motion.form
+        className={styles.container}
+        onSubmit={handleSubmit}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+      >
+        <TextInput
+          taskText={taskText}
+          setTaskText={setTaskText}
+          setActiveMachine={setActiveMachine}
         />
-      </button>
-    </motion.form>
+
+        <TimeInput taskTime={taskTime} setTaskTime={setTaskTime} />
+
+        <button type="submit" className={styles.addButton}>
+          Add Task
+        </button>
+
+        <button type="button" className={styles.closeButton}>
+          <img
+            src={close}
+            alt="close button"
+            onClick={() => setModuleOpen((prev) => !prev)}
+          />
+        </button>
+      </motion.form>
+    </AnimatePresence>
   );
 }
 

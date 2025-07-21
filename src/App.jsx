@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import PomoText from './components/PomoText/PomoText';
 import Pomotomo from './components/Pomotomo/Pomotomo';
 import TaskInput from './components/TaskInput/TaskInput';
