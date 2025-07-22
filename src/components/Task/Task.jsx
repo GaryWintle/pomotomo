@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import { formatTime } from '../../utils/timeUtils';
 import styles from './Task.module.css';
+import clsx from 'clsx';
+import { motion } from 'framer-motion';
 
-function Task({ task }) {
+function Task({ task, setPomoText }) {
   const [isRunning, setIsRunning] = useState(false);
   const [countdown, setCountdown] = useState(task.taskTime);
-
-  let timerColor = 'var(--green-mid) ';
-  let timesOut = 'var(--red-mid) ';
 
   useEffect(() => {
     if (!isRunning) return;
@@ -30,19 +29,24 @@ function Task({ task }) {
     document.title = `${countdown}s`;
   }, [countdown]);
 
+  function timerButton() {
+    setIsRunning((prev) => !prev);
+    setPomoText('Okay, time to focus!');
+  }
+
   return (
     <li className={styles.task}>
-      <button
-        className={styles.timer}
-        onClick={() => setIsRunning((prev) => !prev)}
-        style={
-          countdown < 60
-            ? { backgroundColor: timesOut }
-            : { backgroundColor: timerColor }
-        }
+      <motion.button
+        className={clsx(styles.timer, {
+          [styles.timerRunning]: isRunning,
+          [styles.timerWarning]: isRunning && countdown < 60,
+          [styles.finished]: isRunning && countdown === 0,
+        })}
+        whileTap={{ scale: 0.95 }}
+        onClick={timerButton}
       >
         {formatTime(countdown)}
-      </button>
+      </motion.button>
       <span className={styles.text}>{task.taskText}</span>
     </li>
   );

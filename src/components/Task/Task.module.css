@@ -14,20 +14,35 @@
     0 3px 7px 0 hsla(0, 0%, 0%, 0.06), 0 12px 12px 0 hsla(0, 0%, 0%, 0.05),
     inset 0 -1px 0 var(--neutral-light);
   /* border: 3px solid red; */
+  /* position: relative; */
 }
 
 .timer {
+  /* position: absolute; */
   color: var(--neutral-white);
-  font-size: 2rem;
-  font-weight: 700;
-  background-color: var(--green-mid);
-  box-shadow: inset 0 1px var(--green-light), 0 2px 0 var(--green-dark);
+  font-weight: 500;
+  background: var(--neutral-gradient);
+  /* box-shadow: inset 0 1px var(--neutral-darker), 0 2px 0 var(--neutral-darker); */
   border-radius: var(--br-inside);
   padding: 0.4rem 0.8rem;
   text-align: center;
   min-width: 7rem;
 }
 
-.task-text {
+.timerRunning {
+  /* position: absolute; */
+  font-weight: 800;
+  background: var(--green-gradient);
+}
+
+.timerWarning {
+  /* position: absolute; */
+  font-weight: 800;
+  background: var(--red-gradient);
+}
+
+.text {
   color: var(--neutral-black);
+  font-weight: 500;
+  /* padding-left: 8rem; */
 }

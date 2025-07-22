@@ -7,10 +7,14 @@
   /* Neutrals */
   --neutral-white: hsl(0, 0%, 100%);
   --neutral-light: hsl(210, 15%, 95%);
-  --neutral-mid: #d8dee3;
+  --neutral-mid: hsl(207, 16%, 87%);
   --neutral-dark: hsl(210, 20%, 78%);
   --neutral-darker: hsl(210, 15%, 66%);
   --neutral-black: hsl(208, 10%, 30%);
+  --neutral-gradient: linear-gradient(
+    var(--neutral-dark),
+    var(--neutral-darker)
+  );
 
   /* Reds */
   --red-light: hsl(0, 100%, 75%);

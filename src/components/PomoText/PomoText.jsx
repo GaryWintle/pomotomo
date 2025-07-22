@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import styles from './PomoText.module.css';
 import dialogData from '../../data/dialog.json';
 
@@ -38,9 +38,7 @@ function getOpeningMessage(weatherMain) {
   return finalMessage || "Let's give it a go.";
 }
 
-export default function PomoText() {
-  const [pomoText, setPomoText] = useState("Let's get our groove on!");
-
+export default function PomoText({ pomoText, setPomoText }) {
   useEffect(() => {
     async function getWeather() {
       try {

@@ -10,6 +10,7 @@ function App() {
   const [task, setTask] = useState([]);
   const [activeMachine, setActiveMachine] = useState('bounceAnim');
   const [moduleOpen, setModuleOpen] = useState(false);
+  const [pomoText, setPomoText] = useState("Let's get our groove on!");
 
   function handleAddTask(newTask) {
     setTask((tasks) => [...tasks, newTask]);
@@ -17,9 +18,13 @@ function App() {
 
   return (
     <div className="main-container">
-      <PomoText />
+      <PomoText pomoText={pomoText} setPomoText={setPomoText} />
       <Pomotomo activeMachine={activeMachine} />
-      <TaskList task={task} onAddTask={handleAddTask} />
+      <TaskList
+        task={task}
+        onAddTask={handleAddTask}
+        setPomoText={setPomoText}
+      />
       {!moduleOpen && <OpenButton setModuleOpen={setModuleOpen} />}
       <AnimatePresence>
         {moduleOpen && (
