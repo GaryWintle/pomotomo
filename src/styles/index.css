@@ -6,8 +6,8 @@
 
   /* Neutrals */
   --neutral-white: hsl(0, 0%, 100%);
-  --neutral-light: hsl(210, 17%, 95%);
-  --neutral-mid: hsl(210, 17%, 95%);
+  --neutral-light: hsl(210, 15%, 95%);
+  --neutral-mid: #d8dee3;
   --neutral-dark: hsl(210, 20%, 78%);
   --neutral-darker: hsl(210, 15%, 66%);
   --neutral-black: hsl(208, 10%, 30%);

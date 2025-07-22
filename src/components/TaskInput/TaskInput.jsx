@@ -18,6 +18,7 @@ function TaskInput({ onAddTask, setModuleOpen, setActiveMachine }) {
     onAddTask(newTask);
     setTaskText('');
     setTaskTime(0);
+    setModuleOpen((prev) => !prev);
   }
 
   return (
