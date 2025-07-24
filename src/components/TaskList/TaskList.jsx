@@ -1,13 +1,20 @@
 import Task from '../Task/Task';
 import styles from './TaskList.module.css';
 
-function TaskList({ task, setPomoText }) {
+// TaskList component
+function TaskList({ tasks, activeTaskId, onSetActiveTask, setPomoText }) {
   return (
-    <ul className={styles.container}>
-      {task.map((task) => (
-        <Task task={task} setPomoText={setPomoText} />
+    <div className={styles.container}>
+      {tasks.map((task) => (
+        <Task
+          key={task.id}
+          task={task}
+          isActive={task.id === activeTaskId}
+          onSetActiveTask={onSetActiveTask}
+          setPomoText={setPomoText}
+        />
       ))}
-    </ul>
+    </div>
   );
 }
 

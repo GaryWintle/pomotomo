@@ -1,51 +1,34 @@
-import { useState, useEffect } from 'react';
 import { formatTime } from '../../utils/timeUtils';
 import styles from './Task.module.css';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-function Task({ task, setPomoText }) {
-  const [isRunning, setIsRunning] = useState(false);
-  const [countdown, setCountdown] = useState(task.taskTime);
-
-  useEffect(() => {
-    if (!isRunning) return;
-
-    const interval = setInterval(() => {
-      setCountdown((cdown) => {
-        if (cdown <= 1) {
-          clearInterval(interval);
-          setIsRunning(false);
-          return 0;
-        }
-        return cdown - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [isRunning]);
-
-  useEffect(() => {
-    document.title = `${countdown}s`;
-  }, [countdown]);
-
-  function timerButton() {
-    setIsRunning((prev) => !prev);
-    setPomoText('Okay, time to focus!');
+function Task({
+  task,
+  isActive,
+  onSetActiveTask,
+  setPomoText,
+  isRunning,
+  countdown,
+  onTimerButton,
+}) {
+  function handleSetActive() {
+    onSetActiveTask(task.id);
+    setPomoText(`Working on: ${task.taskText}`);
   }
 
   return (
     <li className={styles.task}>
       <motion.button
         className={clsx(styles.timer, {
-          [styles.timerRunning]: isRunning,
-          [styles.timerWarning]: isRunning && countdown < 60,
-          [styles.finished]: isRunning && countdown === 0,
+          [styles.timerRunning]: isRunning && isActive,
+          [styles.timerWarning]: isRunning && isActive && countdown < 60,
+          [styles.finished]: isRunning && isActive && countdown === 0,
         })}
         whileTap={{ scale: 0.95 }}
-        onClick={timerButton}
+        onClick={isActive ? onTimerButton : handleSetActive}
       >
-        {formatTime(countdown)}
+        {isActive ? formatTime(countdown) : formatTime(task.taskTime)}
       </motion.button>
       <span className={styles.text}>{task.taskText}</span>
     </li>

@@ -41,8 +41,8 @@
   --space-xxl: 4.8rem;
 
   /* Border-Radius */
-  --br-inside: 1.6rem;
-  --br-outside: 2.4rem;
+  --br-inside: 1.2rem;
+  --br-outside: 1.6rem;
 
   /* Drop Shadows */
   --dropshadow-green-shallow: 0 4px 3px hsla(167, 38%, 41%, 0.13);

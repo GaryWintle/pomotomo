@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from 'framer-motion';
 import TextInput from '../TextInput/TextInput';
 import TimeInput from '../TimeInput/TimeInput';
@@ -22,36 +21,34 @@ function TaskInput({ onAddTask, setModuleOpen, setActiveMachine }) {
   }
 
   return (
-    <AnimatePresence>
-      <motion.form
-        className={styles.container}
-        onSubmit={handleSubmit}
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
-      >
-        <TextInput
-          taskText={taskText}
-          setTaskText={setTaskText}
-          setActiveMachine={setActiveMachine}
+    <motion.form
+      className={styles.container}
+      onSubmit={handleSubmit}
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 100 }}
+      transition={{ duration: 0.3 }}
+    >
+      <TextInput
+        taskText={taskText}
+        setTaskText={setTaskText}
+        setActiveMachine={setActiveMachine}
+      />
+
+      <TimeInput taskTime={taskTime} setTaskTime={setTaskTime} />
+
+      <button type="submit" className={styles.addButton}>
+        Add Task
+      </button>
+
+      <button type="button" className={styles.closeButton}>
+        <img
+          src={close}
+          alt="close button"
+          onClick={() => setModuleOpen((prev) => !prev)}
         />
-
-        <TimeInput taskTime={taskTime} setTaskTime={setTaskTime} />
-
-        <button type="submit" className={styles.addButton}>
-          Add Task
-        </button>
-
-        <button type="button" className={styles.closeButton}>
-          <img
-            src={close}
-            alt="close button"
-            onClick={() => setModuleOpen((prev) => !prev)}
-          />
-        </button>
-      </motion.form>
-    </AnimatePresence>
+      </button>
+    </motion.form>
   );
 }
 
