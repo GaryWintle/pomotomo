@@ -5,6 +5,7 @@ import Pomotomo from './components/Pomotomo/Pomotomo';
 import TaskInput from './components/TaskInput/TaskInput';
 import TaskList from './components/TaskList/TaskList';
 import OpenButton from './components/Buttons/OpenButton';
+import CircleTimer from './components/CircleTimer/CircleTimer';
 
 // const taskExamples = [
 //   {
@@ -45,6 +46,7 @@ function App() {
   const [taskRemainingTimes, setTaskRemainingTimes] = useState({});
 
   const selectedTask = task.find((prev) => prev.id === selectedTaskId);
+  // const runningTask = task.find((prev) => prev.id === runningTaskId);
 
   const getRemainingTime = (taskId, originalTime) => {
     return taskRemainingTimes[taskId] ?? originalTime;
@@ -87,10 +89,20 @@ function App() {
       {selectedTask ? (
         <div>
           <p>{selectedTask.taskText}</p>
+          <CircleTimer
+            currentTime={getRemainingTime(
+              selectedTask.id,
+              selectedTask.taskTime
+            )}
+            originalTime={selectedTask.taskTime}
+            isRunning={isRunning}
+            isThisTimer={runningTaskId === selectedTask.id}
+          />
         </div>
       ) : (
         <PomoText pomoText={pomoText} setPomoText={setPomoText} />
       )}
+
       <Pomotomo activeMachine={activeMachine} />
       <TaskList
         task={task}
