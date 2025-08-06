@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
-import { formatTime } from '../../utils/timeUtils';
+import { formatTime } from '../../../utils/timeUtils';
 import styles from './Task.module.css';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import TaskTimeCircle from '../TaskTimeCircle/TaskTimeCircle';
 
 function Task({ task, setPomoText }) {
   const [isRunning, setIsRunning] = useState(false);
   const [countdown, setCountdown] = useState(task.taskTime);
+
+  const radius = 50;
+  const circumference = 2 * Math.PI * radius;
+  const progress = task.taskTime > 0 ? countdown / task.taskTime : 0;
 
   useEffect(() => {
     if (!isRunning) return;
@@ -36,7 +39,37 @@ function Task({ task, setPomoText }) {
 
   return (
     <li className={styles.task}>
-      <TaskTimeCircle task={task} countdown={countdown} isRunning={isRunning} />
+      <svg width="50" height="50" viewBox="0 0 120 120">
+        <circle
+          cx="60"
+          cy="60"
+          r="50"
+          stroke="#eee"
+          fill="none"
+          strokeWidth="10"
+          filter="url(#inner-shadow)"
+        />
+
+        <motion.circle
+          filter="url(#glow)"
+          cx="60"
+          cy="60"
+          r="50"
+          stroke={
+            isRunning && countdown < 60 ? 'var(--red-mid)' : 'var(--green-mid)'
+          }
+          fill="none"
+          strokeWidth="10"
+          strokeLinecap="round"
+          strokeDasharray={circumference}
+          strokeDashoffset={circumference * (1 - progress)}
+          initial={false}
+          animate={{ strokeDashoffset: circumference * (1 - progress) }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}
+        />
+      </svg>
+      {/* <TaskTimeCircle task={task} countdown={countdown} isRunning={isRunning} /> */}
       <motion.button
         className={clsx(styles.timer, {
           [styles.timerRunning]: isRunning,

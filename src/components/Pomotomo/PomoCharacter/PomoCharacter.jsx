@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useRive, Layout, Fit, Alignment } from '@rive-app/react-canvas-lite';
-import styles from './Pomotomo.module.css';
+import styles from './PomoCharacter.module.css';
 
-export default function Pomotomo({ activeMachine }) {
+export default function PomoCharacter({ activeMachine }) {
   const { rive, RiveComponent } = useRive({
     src: 'animations/pomo-04.riv',
     autoplay: false,

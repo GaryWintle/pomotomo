@@ -5,7 +5,7 @@ function TaskList({ task, setPomoText }) {
   return (
     <ul className={styles.container}>
       {task.map((task) => (
-        <Task task={task} setPomoText={setPomoText} />
+        <Task key={task.id} task={task} setPomoText={setPomoText} />
       ))}
     </ul>
   );

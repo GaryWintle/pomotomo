@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import PomoText from './components/PomoText/PomoText';
-import Pomotomo from './components/Pomotomo/Pomotomo';
-import TaskInput from './components/TaskInput/TaskInput';
-import TaskList from './components/TaskList/TaskList';
+import { motion } from 'framer-motion';
+import { PomoText, PomoCharacter } from './components/Pomotomo';
+import { TaskList } from './components/Tasks';
+import { TaskInput } from './components/TaskModule';
 import OpenButton from './components/Buttons/OpenButton';
 
 function App() {
@@ -19,22 +18,20 @@ function App() {
   return (
     <div className="main-container">
       <PomoText pomoText={pomoText} setPomoText={setPomoText} />
-      <Pomotomo activeMachine={activeMachine} />
+      <PomoCharacter activeMachine={activeMachine} />
       <TaskList
         task={task}
         onAddTask={handleAddTask}
         setPomoText={setPomoText}
       />
       {!moduleOpen && <OpenButton setModuleOpen={setModuleOpen} />}
-      <AnimatePresence>
-        {moduleOpen && (
-          <TaskInput
-            onAddTask={handleAddTask}
-            setActiveMachine={setActiveMachine}
-            setModuleOpen={setModuleOpen}
-          />
-        )}
-      </AnimatePresence>
+      {moduleOpen && (
+        <TaskInput
+          onAddTask={handleAddTask}
+          setActiveMachine={setActiveMachine}
+          setModuleOpen={setModuleOpen}
+        />
+      )}
     </div>
   );
 }
