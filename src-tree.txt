@@ -1,0 +1,39 @@
+src
+├── App.jsx
+├── assets
+│   ├── close-module.svg
+│   ├── minus-default.svg
+│   ├── minus.svg
+│   ├── open-module.svg
+│   ├── plus-default.svg
+│   ├── plus.svg
+│   └── xplus.svg
+├── components
+│   ├── Buttons
+│   │   ├── OpenButton.jsx
+│   │   └── OpenButton.module.css
+│   ├── Pomotomo
+│   │   ├── PomoCharacter
+│   │   ├── PomoText
+│   │   └── index.js
+│   ├── TaskModule
+│   │   ├── TaskInput
+│   │   ├── TextInput
+│   │   ├── TimeInput
+│   │   ├── TimePresets
+│   │   └── index.js
+│   └── Tasks
+│       ├── Task
+│       ├── TaskList
+│       └── index.js
+├── data
+│   └── dialog.json
+├── main.jsx
+├── styles
+│   ├── index.css
+│   └── reset.css
+└── utils
+    ├── motionPresets.js
+    └── timeUtils.js
+
+17 directories, 19 files

@@ -1,4 +1,4 @@
-import Task from '../Task/Task';
+import { Task } from '@components/Tasks';
 import styles from './TaskList.module.css';
 
 function TaskList({ task, setPomoText }) {

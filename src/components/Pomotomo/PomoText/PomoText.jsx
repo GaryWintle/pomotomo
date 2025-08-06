@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import styles from './PomoText.module.css';
-import dialogData from '../../../data/dialog.json';
+import dialogData from '@data/dialog.json';
 
 const API_KEY = 'c63466566a94eed443aa24282e402241';
 const CITY = 'Osaka, jp';
@@ -52,7 +52,7 @@ export default function PomoText({ pomoText, setPomoText }) {
       }
     }
     getWeather();
-  }, []);
+  }, [setPomoText]);
 
   return <p className={styles.text}>{pomoText}</p>;
 }

@@ -1,5 +1,5 @@
 import styles from './OpenButton.module.css';
-import open from '../../assets/open-module.svg';
+import open from '@assets/open-module.svg';
 
 export default function OpenButton({ setModuleOpen }) {
   return (

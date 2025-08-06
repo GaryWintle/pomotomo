@@ -1,5 +1,5 @@
 import styles from './TimePresets.module.css';
-import { inputButtonVariants } from '../../../utils/motionPresets';
+import { inputButtonVariants } from '@utils/motionPresets';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 

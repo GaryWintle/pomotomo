@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { PomoText, PomoCharacter } from './components/Pomotomo';
-import { TaskList } from './components/Tasks';
-import { TaskInput } from './components/TaskModule';
-import OpenButton from './components/Buttons/OpenButton';
+import { PomoText, PomoCharacter } from '@components/Pomotomo';
+import { TaskList } from '@components/Tasks';
+import { TaskInput } from '@components/TaskModule';
+import OpenButton from '@components/Buttons/OpenButton';
 
 function App() {
   const [task, setTask] = useState([]);

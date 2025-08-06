@@ -1,10 +1,10 @@
-import { TimePresets } from './TimePresets';
-import { formatReadableTime } from '../../../utils/timeUtils';
+import { TimePresets } from '@components/TaskModule';
 import styles from './TimeInput.module.css';
-import minus from '../../assets/minus.svg';
-import plus from '../../assets/plus.svg';
+import minus from '@assets/minus.svg';
+import plus from '@assets/plus.svg';
 import { motion } from 'framer-motion';
-import { inputButtonVariants } from '../../../utils/motionPresets';
+import { formatReadableTime } from '@utils/timeUtils';
+import { inputButtonVariants } from '@utils/motionPresets';
 
 const TimeInput = ({ taskTime, setTaskTime }) => {
   const increment = (amount) => {

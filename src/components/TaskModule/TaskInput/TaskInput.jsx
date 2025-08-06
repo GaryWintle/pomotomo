@@ -1,9 +1,9 @@
 import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from 'framer-motion';
-import { TextInput, TimeInput } from './components/TaskModule';
+import { TextInput, TimeInput } from '@components/TaskModule';
 import styles from './TaskInput.module.css';
-import close from '../../assets/xplus.svg';
+import close from '@assets/xplus.svg';
 
 function TaskInput({ onAddTask, setModuleOpen, setActiveMachine }) {
   const [taskText, setTaskText] = useState('');
