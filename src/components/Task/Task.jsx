@@ -3,6 +3,7 @@ import { formatTime } from '../../utils/timeUtils';
 import styles from './Task.module.css';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
+import TaskTimeCircle from '../TaskTimeCircle/TaskTimeCircle';
 
 function Task({ task, setPomoText }) {
   const [isRunning, setIsRunning] = useState(false);
@@ -10,7 +11,6 @@ function Task({ task, setPomoText }) {
 
   useEffect(() => {
     if (!isRunning) return;
-
     const interval = setInterval(() => {
       setCountdown((cdown) => {
         if (cdown <= 1) {
@@ -36,6 +36,7 @@ function Task({ task, setPomoText }) {
 
   return (
     <li className={styles.task}>
+      <TaskTimeCircle task={task} countdown={countdown} isRunning={isRunning} />
       <motion.button
         className={clsx(styles.timer, {
           [styles.timerRunning]: isRunning,
