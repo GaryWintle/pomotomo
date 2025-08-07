@@ -19,11 +19,11 @@
 
 .timer {
   /* position: absolute; */
-  color: var(--neutral-white);
-  font-weight: 500;
-  background: var(--neutral-gradient);
+  color: var(--green-mid);
+  font-weight: 700;
+  /* background: var(--neutral-gradient); */
   /* box-shadow: inset 0 1px var(--neutral-darker), 0 2px 0 var(--neutral-darker); */
-  border-radius: var(--br-inside);
+  /* border-radius: var(--br-inside); */
   padding: 0.4rem 0.8rem;
   text-align: center;
   min-width: 7rem;
@@ -32,17 +32,21 @@
 .timerRunning {
   /* position: absolute; */
   font-weight: 800;
-  background: var(--green-gradient);
+  /* background: var(--green-gradient); */
 }
 
 .timerWarning {
   /* position: absolute; */
   font-weight: 800;
-  background: var(--red-gradient);
+  /* background: var(--red-gradient); */
 }
 
 .text {
   color: var(--neutral-black);
   font-weight: 500;
   /* padding-left: 8rem; */
+}
+
+svg {
+  position: absolute;
 }

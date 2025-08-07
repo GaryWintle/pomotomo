@@ -4,14 +4,36 @@ import { TaskList } from '@components/Tasks';
 import { TaskInput } from '@components/TaskModule';
 import OpenButton from '@components/Buttons/OpenButton';
 
+const testTasks = [
+  {
+    taskText: 'Coding Practice',
+    taskTime: 60,
+    completed: false,
+    id: 1754523196574,
+  },
+  {
+    taskText: 'Studying Japanese',
+    taskTime: 300,
+    completed: false,
+    id: 1754523196575,
+  },
+  {
+    taskText: 'Cleaning Room',
+    taskTime: 650,
+    completed: true,
+    id: 1754523196574,
+  },
+];
+
 function App() {
-  const [task, setTask] = useState([]);
+  const [task, setTask] = useState(testTasks);
   const [activeMachine, setActiveMachine] = useState('bounceAnim');
   const [moduleOpen, setModuleOpen] = useState(false);
   const [pomoText, setPomoText] = useState("Let's get our groove on!");
 
   function handleAddTask(newTask) {
     setTask((tasks) => [...tasks, newTask]);
+    console.log(task);
   }
 
   return (

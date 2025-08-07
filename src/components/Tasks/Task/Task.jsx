@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { formatTime } from '@utils/timeUtils';
 import styles from './Task.module.css';
 import clsx from 'clsx';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function Task({ task, setPomoText }) {
   const [isRunning, setIsRunning] = useState(false);
@@ -38,51 +38,67 @@ function Task({ task, setPomoText }) {
   }
 
   return (
-    <li className={styles.task}>
-      <svg width="50" height="50" viewBox="0 0 120 120">
-        <circle
-          cx="60"
-          cy="60"
-          r="50"
-          stroke="#eee"
-          fill="none"
-          strokeWidth="10"
-          filter="url(#inner-shadow)"
-        />
+    <AnimatePresence>
+      <motion.li className={styles.task}>
+        <svg
+          whileTap={{ scale: 0.95 }}
+          onClick={timerButton}
+          width="70"
+          height="70"
+          viewBox="0 0 120 120"
+        >
+          <circle
+            cx="60"
+            cy="60"
+            r="50"
+            stroke="var(--neutral-white"
+            fill="none"
+            strokeWidth="20"
+          />
+          <circle
+            cx="60"
+            cy="60"
+            r="50"
+            stroke="#eee"
+            fill="none"
+            strokeWidth="10"
+          />
 
-        <motion.circle
-          filter="url(#glow)"
-          cx="60"
-          cy="60"
-          r="50"
-          stroke={
-            isRunning && countdown < 60 ? 'var(--red-mid)' : 'var(--green-mid)'
-          }
-          fill="none"
-          strokeWidth="10"
-          strokeLinecap="round"
-          strokeDasharray={circumference}
-          strokeDashoffset={circumference * (1 - progress)}
-          initial={false}
-          animate={{ strokeDashoffset: circumference * (1 - progress) }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}
-        />
-      </svg>
-      {/* <TaskTimeCircle task={task} countdown={countdown} isRunning={isRunning} /> */}
-      <motion.button
-        className={clsx(styles.timer, {
-          [styles.timerRunning]: isRunning,
-          [styles.timerWarning]: isRunning && countdown < 60,
-          [styles.finished]: isRunning && countdown === 0,
-        })}
-        whileTap={{ scale: 0.95 }}
-        onClick={timerButton}
-      >
-        {formatTime(countdown)}
-      </motion.button>
-      <span className={styles.text}>{task.taskText}</span>
-    </li>
+          <motion.circle
+            cx="60"
+            cy="60"
+            r="50"
+            stroke={
+              isRunning && countdown < 60
+                ? 'var(--red-mid)'
+                : 'var(--green-mid)'
+            }
+            fill="none"
+            strokeWidth="10"
+            strokeLinecap="round"
+            strokeDasharray={circumference}
+            strokeDashoffset={circumference * (1 - progress)}
+            initial={false}
+            animate={{ strokeDashoffset: circumference * (1 - progress) }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}
+          />
+        </svg>
+
+        <motion.button
+          className={clsx(styles.timer, {
+            [styles.timerRunning]: isRunning,
+            [styles.timerWarning]: isRunning && countdown < 60,
+            [styles.finished]: isRunning && countdown === 0,
+          })}
+          // whileTap={{ scale: 0.95 }}
+          // onClick={timerButton}
+        >
+          {formatTime(countdown)}
+        </motion.button>
+        <span className={styles.text}>{task.taskText}</span>
+      </motion.li>
+    </AnimatePresence>
   );
 }
 
