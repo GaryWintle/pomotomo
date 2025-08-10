@@ -39,6 +39,10 @@ function App() {
     console.log(task);
   }
 
+  function handleDeleteTask(id) {
+    setTask((prev) => prev.filter((task) => task.id !== id));
+  }
+
   useEffect(() => {
     localStorage.setItem('task', JSON.stringify(task));
   }, [task]);
@@ -50,6 +54,7 @@ function App() {
       <TaskList
         task={task}
         onAddTask={handleAddTask}
+        onDeleteTask={handleDeleteTask}
         setPomoText={setPomoText}
       />
       {!moduleOpen && <OpenButton setModuleOpen={setModuleOpen} />}

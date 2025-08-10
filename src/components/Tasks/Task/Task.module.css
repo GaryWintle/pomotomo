@@ -1,52 +1,54 @@
 .task {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
   width: min(100%, 50rem);
-  font-size: var(--type-medium);
-  font-weight: 500;
   padding: var(--space-xs) var(--space-md);
   border-radius: var(--br-outside);
   gap: var(--space-md);
   border: 2px solid var(--neutral-light);
   background-color: var(--neutral-white);
-  box-shadow: 0 27px 16px 0 hsla(0, 0%, 0%, 0.03),
-    0 3px 7px 0 hsla(0, 0%, 0%, 0.06), 0 12px 12px 0 hsla(0, 0%, 0%, 0.05),
+  box-shadow: var(--dropshadow-neutral-deep),
     inset 0 -1px 0 var(--neutral-light);
-  /* border: 3px solid red; */
-  /* position: relative; */
-}
-
-.timer {
-  /* position: absolute; */
-  color: var(--green-mid);
-  font-weight: 700;
-  /* background: var(--neutral-gradient); */
-  /* box-shadow: inset 0 1px var(--neutral-darker), 0 2px 0 var(--neutral-darker); */
-  /* border-radius: var(--br-inside); */
-  padding: 0.4rem 0.8rem;
-  text-align: center;
-  min-width: 7rem;
-}
-
-.timerRunning {
-  /* position: absolute; */
-  font-weight: 800;
-  /* background: var(--green-gradient); */
-}
-
-.timerWarning {
-  /* position: absolute; */
-  font-weight: 800;
-  /* background: var(--red-gradient); */
 }
 
 .text {
   color: var(--neutral-black);
   font-weight: 500;
-  /* padding-left: 8rem; */
+  font-size: var(--type-medium);
 }
 
-svg {
+.circleTimerDefault {
   position: absolute;
+}
+.circleTimerRunning {
+  position: absolute;
+}
+.circleTimerwarning {
+  position: absolute;
+}
+
+.timerDefault {
+  color: var(--neutral-black);
+  font-size: var(--type-small);
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  min-width: 7rem;
+}
+
+.timerRunning {
+  color: var(--green-mid);
+  font-weight: 800;
+}
+
+.timerWarning {
+  color: var(--red-mid);
+  font-weight: 800;
+}
+
+.closeButton img {
+  width: 18px;
 }

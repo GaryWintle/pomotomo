@@ -45,6 +45,9 @@
   --br-outside: 2.4rem;
 
   /* Drop Shadows */
+  --dropshadow-neutral-deep: 0 27px 16px 0 hsla(0, 0%, 0%, 0.03),
+    0 3px 7px 0 hsla(0, 0%, 0%, 0.06), 0 12px 12px 0 hsla(0, 0%, 0%, 0.05);
+
   --dropshadow-green-shallow: 0 4px 3px hsla(167, 38%, 41%, 0.13);
   --dropshadow-red-deep: 0 25px 14px hsla(325, 38%, 41%, 0.02),
     0 15px 12px hsla(325, 38%, 41%, 0.07), 0 4px 9px hsla(325, 38%, 41%, 0.12),
@@ -62,8 +65,8 @@
 
   /* weight */
 
-  --elevation-90--near: 0rem 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
-  --elevation-90--far: 0rem 1.25rem 2.5rem rgba(0, 0, 0, 0.08);
+  --elevation-90--near: 0rem 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+  --elevation-90--far: 0rem 1.25rem 2.5rem rgba(0, 0, 0, 0.05);
   --elevation-90: var(--elevation-90--near), var(--elevation-90--far);
 }
 

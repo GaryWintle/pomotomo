@@ -3,8 +3,9 @@ import { formatTime } from '@utils/timeUtils';
 import styles from './Task.module.css';
 import clsx from 'clsx';
 import { motion, AnimatePresence } from 'framer-motion';
+import close from '@assets/xplus.svg';
 
-function Task({ task, setPomoText }) {
+function Task({ task, setPomoText, onDeleteTask }) {
   const [isRunning, setIsRunning] = useState(false);
   const [countdown, setCountdown] = useState(task.taskTime);
 
@@ -41,6 +42,11 @@ function Task({ task, setPomoText }) {
     <AnimatePresence>
       <motion.li className={styles.task}>
         <svg
+          className={clsx(styles.circleTimerDefault, {
+            [styles.circleTimerRunning]: isRunning,
+            [styles.circleTimerWarning]: isRunning && countdown < 60,
+            [styles.finished]: isRunning && countdown === 0,
+          })}
           whileTap={{ scale: 0.95 }}
           onClick={timerButton}
           width="70"
@@ -86,7 +92,7 @@ function Task({ task, setPomoText }) {
         </svg>
 
         <motion.button
-          className={clsx(styles.timer, {
+          className={clsx(styles.timerDefault, {
             [styles.timerRunning]: isRunning,
             [styles.timerWarning]: isRunning && countdown < 60,
             [styles.finished]: isRunning && countdown === 0,
@@ -97,6 +103,10 @@ function Task({ task, setPomoText }) {
           {formatTime(countdown)}
         </motion.button>
         <span className={styles.text}>{task.taskText}</span>
+        <button type="button" className={styles.closeButton}>
+          <img src={close} alt="close" onClick={() => onDeleteTask(task.id)} />
+          {/* () => onDeleteWatched(movie.imdbID) */}
+        </button>
       </motion.li>
     </AnimatePresence>
   );
