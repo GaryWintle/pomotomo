@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { PomoText, PomoCharacter } from '@components/Pomotomo';
 import { TaskList } from '@components/Tasks';
 import { TaskInput } from '@components/TaskModule';
@@ -26,15 +26,22 @@ const testTasks = [
 ];
 
 function App() {
-  const [task, setTask] = useState(testTasks);
+  const [task, setTask] = useState(() => {
+    const storedTask = localStorage.getItem('task');
+    return JSON.parse(storedTask);
+  });
   const [activeMachine, setActiveMachine] = useState('bounceAnim');
   const [moduleOpen, setModuleOpen] = useState(false);
-  const [pomoText, setPomoText] = useState("Let's get our groove on!");
+  const [pomoText, setPomoText] = useState('');
 
   function handleAddTask(newTask) {
     setTask((tasks) => [...tasks, newTask]);
     console.log(task);
   }
+
+  useEffect(() => {
+    localStorage.setItem('task', JSON.stringify(task));
+  }, [task]);
 
   return (
     <div className="main-container">
