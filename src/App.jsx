@@ -28,7 +28,7 @@ const testTasks = [
 function App() {
   const [task, setTask] = useState(() => {
     const storedTask = localStorage.getItem('task');
-    return JSON.parse(storedTask);
+    return storedTask ? JSON.parse(storedTask) : [];
   });
   const [activeMachine, setActiveMachine] = useState('bounceAnim');
   const [moduleOpen, setModuleOpen] = useState(false);
