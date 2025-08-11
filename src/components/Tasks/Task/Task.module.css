@@ -3,10 +3,11 @@
   align-items: center;
   justify-content: space-between; */
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto;
   align-items: center;
+  position: relative;
   width: min(100%, 50rem);
-  padding: var(--space-xs) var(--space-md);
+  padding: var(--space-sm) var(--space-md);
   border-radius: var(--br-outside);
   gap: var(--space-md);
   border: 2px solid var(--neutral-light);
@@ -16,9 +17,31 @@
 }
 
 .text {
+  margin-left: 55px;
   color: var(--neutral-black);
   font-weight: 500;
   font-size: var(--type-medium);
+}
+
+/* Timer Button */
+
+.timerButton {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 2%;
+  transform: translate(-25%, -50%);
+  width: 65px;
+  height: 65px;
+}
+
+svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
 }
 
 .circleTimerDefault {

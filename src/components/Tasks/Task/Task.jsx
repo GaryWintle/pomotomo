@@ -38,69 +38,76 @@ function Task({ task, setPomoText, onDeleteTask }) {
     setPomoText('Okay, time to focus!');
   }
 
+  function getStrokeColor() {
+    if (!isRunning) return 'var(--neutral-mid)';
+    if (countdown < 60) return 'var(--red-mid)';
+    return 'var(--green-mid)';
+  }
+
   return (
     <AnimatePresence>
       <motion.li className={styles.task}>
-        <svg
-          className={clsx(styles.circleTimerDefault, {
-            [styles.circleTimerRunning]: isRunning,
-            [styles.circleTimerWarning]: isRunning && countdown < 60,
-            [styles.finished]: isRunning && countdown === 0,
-          })}
-          whileTap={{ scale: 0.95 }}
-          onClick={timerButton}
-          width="70"
-          height="70"
-          viewBox="0 0 120 120"
-        >
-          <circle
-            cx="60"
-            cy="60"
-            r="50"
-            stroke="var(--neutral-white"
-            fill="none"
-            strokeWidth="20"
-          />
-          <circle
-            cx="60"
-            cy="60"
-            r="50"
-            stroke="#eee"
-            fill="none"
-            strokeWidth="10"
-          />
-
-          <motion.circle
-            cx="60"
-            cy="60"
-            r="50"
-            stroke={
-              isRunning && countdown < 60
-                ? 'var(--red-mid)'
-                : 'var(--green-mid)'
-            }
-            fill="none"
-            strokeWidth="10"
-            strokeLinecap="round"
-            strokeDasharray={circumference}
-            strokeDashoffset={circumference * (1 - progress)}
-            initial={false}
-            animate={{ strokeDashoffset: circumference * (1 - progress) }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}
-          />
-        </svg>
-
         <motion.button
-          className={clsx(styles.timerDefault, {
-            [styles.timerRunning]: isRunning,
-            [styles.timerWarning]: isRunning && countdown < 60,
-            [styles.finished]: isRunning && countdown === 0,
-          })}
+          className={styles.timerButton}
+
           // whileTap={{ scale: 0.95 }}
           // onClick={timerButton}
         >
-          {formatTime(countdown)}
+          <svg
+            className={clsx(styles.circleTimerDefault, {
+              [styles.circleTimerRunning]: isRunning,
+              [styles.circleTimerWarning]: isRunning && countdown < 60,
+              [styles.finished]: isRunning && countdown === 0,
+            })}
+            whileTap={{ scale: 0.95 }}
+            onClick={timerButton}
+            viewBox="0 0 120 120"
+          >
+            <circle
+              cx="60"
+              cy="60"
+              r="50"
+              stroke="var(--neutral-white"
+              fill="none"
+              strokeWidth="20"
+            />
+            <circle
+              cx="60"
+              cy="60"
+              r="50"
+              stroke="#eee"
+              fill="none"
+              strokeWidth="10"
+            />
+
+            <motion.circle
+              cx="60"
+              cy="60"
+              r="50"
+              stroke={getStrokeColor()}
+              fill="none"
+              strokeWidth="10"
+              strokeLinecap="round"
+              strokeDasharray={circumference}
+              strokeDashoffset={circumference * (1 - progress)}
+              initial={false}
+              animate={{ strokeDashoffset: circumference * (1 - progress) }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              style={{
+                transform: 'rotate(-90deg)',
+                transformOrigin: '50% 50%',
+              }}
+            />
+          </svg>
+          <span
+            className={clsx(styles.timerDefault, {
+              [styles.timerRunning]: isRunning,
+              [styles.timerWarning]: isRunning && countdown < 60,
+              [styles.finished]: isRunning && countdown === 0,
+            })}
+          >
+            {formatTime(countdown)}
+          </span>
         </motion.button>
         <span className={styles.text}>{task.taskText}</span>
         <button type="button" className={styles.closeButton}>
