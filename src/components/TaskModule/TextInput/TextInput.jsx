@@ -1,6 +1,13 @@
+import { useRef, useEffect } from 'react';
 import styles from './TextInput.module.css';
 
 const TextInput = ({ taskText, setTaskText, setActiveMachine }) => {
+  const inputEl = useRef(null);
+
+  useEffect(() => {
+    inputEl.current.focus();
+  }, []);
+
   return (
     <div className={styles.container}>
       <label htmlFor="taskText" className="task-module__label">
@@ -15,6 +22,7 @@ const TextInput = ({ taskText, setTaskText, setActiveMachine }) => {
         onChange={(e) => setTaskText(e.target.value)}
         onFocus={() => setActiveMachine('readingAnim')}
         onBlur={() => setActiveMachine('idleAnim')}
+        ref={inputEl}
       ></input>
     </div>
   );

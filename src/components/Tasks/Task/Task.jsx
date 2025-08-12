@@ -13,6 +13,17 @@ function Task({ task, setPomoText, onDeleteTask }) {
   const circumference = 2 * Math.PI * radius;
   const progress = task.taskTime > 0 ? countdown / task.taskTime : 0;
 
+  function timerButton() {
+    setIsRunning((prev) => !prev);
+    setPomoText('Okay, time to focus!');
+  }
+
+  function getStrokeColor() {
+    if (!isRunning) return 'var(--neutral-mid)';
+    if (countdown < 60) return 'var(--red-mid)';
+    return 'var(--green-mid)';
+  }
+
   useEffect(() => {
     if (!isRunning) return;
     const interval = setInterval(() => {
@@ -32,17 +43,6 @@ function Task({ task, setPomoText, onDeleteTask }) {
   useEffect(() => {
     document.title = `${countdown}s`;
   }, [countdown]);
-
-  function timerButton() {
-    setIsRunning((prev) => !prev);
-    setPomoText('Okay, time to focus!');
-  }
-
-  function getStrokeColor() {
-    if (!isRunning) return 'var(--neutral-mid)';
-    if (countdown < 60) return 'var(--red-mid)';
-    return 'var(--green-mid)';
-  }
 
   return (
     <AnimatePresence>
