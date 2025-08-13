@@ -1,38 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { PomoText, PomoCharacter } from '@components/Pomotomo';
 import { TaskList } from '@components/Tasks';
 import { TaskInput } from '@components/TaskModule';
 import OpenButton from '@components/Buttons/OpenButton';
-
-const testTasks = [
-  {
-    taskText: 'Coding Practice',
-    taskTime: 60,
-    completed: false,
-    id: 1754523196574,
-  },
-  {
-    taskText: 'Studying Japanese',
-    taskTime: 300,
-    completed: false,
-    id: 1754523196575,
-  },
-  {
-    taskText: 'Cleaning Room',
-    taskTime: 650,
-    completed: true,
-    id: 1754523196574,
-  },
-];
+import { useLocalStorage } from '../src/hooks/useLocalStorage';
 
 function App() {
-  const [task, setTask] = useState(() => {
-    const storedTask = localStorage.getItem('task');
-    return storedTask ? JSON.parse(storedTask) : [];
-  });
   const [activeMachine, setActiveMachine] = useState('bounceAnim');
   const [moduleOpen, setModuleOpen] = useState(false);
   const [pomoText, setPomoText] = useState('');
+  const [task, setTask] = useLocalStorage([], 'task');
 
   function handleAddTask(newTask) {
     setTask((tasks) => [...tasks, newTask]);
@@ -42,10 +19,6 @@ function App() {
   function handleDeleteTask(id) {
     setTask((prev) => prev.filter((task) => task.id !== id));
   }
-
-  useEffect(() => {
-    localStorage.setItem('task', JSON.stringify(task));
-  }, [task]);
 
   return (
     <div className="main-container">

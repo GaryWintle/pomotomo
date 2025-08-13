@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import clsx from 'clsx';
 import { formatTime } from '@utils/timeUtils';
 import styles from './Task.module.css';
-import clsx from 'clsx';
-import { motion, AnimatePresence } from 'framer-motion';
 import close from '@assets/xplus.svg';
 
 function Task({ task, setPomoText, onDeleteTask }) {
