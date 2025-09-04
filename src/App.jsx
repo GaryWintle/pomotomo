@@ -3,10 +3,10 @@ import { PomoText, PomoCharacter } from '@components/Pomotomo';
 import { TaskList } from '@components/Tasks';
 import { TaskInput } from '@components/TaskModule';
 import OpenButton from '@components/Buttons/OpenButton';
-import { useLocalStorage } from '../src/hooks/useLocalStorage';
+import { useLocalStorage } from '@hooks/useLocalStorage';
 
 function App() {
-  const [activeMachine, setActiveMachine] = useState('bounceAnim');
+  const [activeMachine, setActiveMachine] = useState('startPomo');
   const [moduleOpen, setModuleOpen] = useState(false);
   const [pomoText, setPomoText] = useState('');
   const [task, setTask] = useLocalStorage([], 'task');

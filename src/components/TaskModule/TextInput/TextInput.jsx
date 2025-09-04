@@ -20,8 +20,8 @@ const TextInput = ({ taskText, setTaskText, setActiveMachine }) => {
         name="taskText"
         value={taskText}
         onChange={(e) => setTaskText(e.target.value)}
-        onFocus={() => setActiveMachine('readingAnim')}
-        onBlur={() => setActiveMachine('idleAnim')}
+        onFocus={() => setActiveMachine('startReading')}
+        onBlur={() => setActiveMachine('startIdle')}
         ref={inputEl}
       ></input>
     </div>

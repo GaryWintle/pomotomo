@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from 'framer-motion';
 import { TextInput, TimeInput } from '@components/TaskModule';
 import styles from './TaskInput.module.css';

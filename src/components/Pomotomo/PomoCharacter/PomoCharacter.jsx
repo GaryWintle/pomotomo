@@ -4,14 +4,20 @@ import styles from './PomoCharacter.module.css';
 
 export default function PomoCharacter({ activeMachine }) {
   const { rive, RiveComponent } = useRive({
-    src: 'animations/pomo-04.riv',
-    autoplay: false,
-    stateMachines: ['idleAnim', 'bounceAnim', 'readingAnim'],
+    src: 'animations/pomotomo-05.riv',
+    autoplay: true,
+    stateMachines: ['Pomotomo'],
+    layout: new Layout({
+      fit: Fit.Contain,
+      alignment: Alignment.Center,
+    }),
   });
 
   useEffect(() => {
     if (!rive) return;
-    rive.reset({ stateMachines: activeMachine, autoplay: true });
+    const inputs = rive.stateMachineInputs('Pomotomo');
+    const input = inputs.find((i) => i.name === activeMachine);
+    input?.fire();
   }, [rive, activeMachine]);
 
   return (
