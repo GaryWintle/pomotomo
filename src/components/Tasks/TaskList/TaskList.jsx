@@ -1,17 +1,26 @@
+import { useContext } from 'react';
+import { TaskContext } from '../../../App';
 import { Task } from '@components/Tasks';
 import styles from './TaskList.module.css';
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
 
-function TaskList({ task, setPomoText, onDeleteTask }) {
+function TaskList({ setPomoText }) {
+  const { task } = useContext(TaskContext);
   return (
     <ul className={styles.container}>
-      {task.map((task) => (
-        <Task
-          key={task.id}
-          task={task}
-          setPomoText={setPomoText}
-          onDeleteTask={onDeleteTask}
-        />
-      ))}
+      <SortableContext items={task} strategy={verticalListSortingStrategy}>
+        {task.map((singleTask) => (
+          <Task
+            key={singleTask.id}
+            id={singleTask.id}
+            task={singleTask}
+            setPomoText={setPomoText}
+          />
+        ))}
+      </SortableContext>
     </ul>
   );
 }

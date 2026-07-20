@@ -1,7 +1,9 @@
+.taskContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .task {
-  /* display: flex;
-  align-items: center;
-  justify-content: space-between; */
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
@@ -14,6 +16,7 @@
   background-color: var(--neutral-white);
   box-shadow: var(--dropshadow-neutral-deep),
     inset 0 -1px 0 var(--neutral-light);
+  touch-action: none;
 }
 
 .text {
@@ -32,7 +35,6 @@
   left: 2%;
   transform: translate(-25%, -50%);
   width: 65px;
-  height: 65px;
 }
 
 svg {

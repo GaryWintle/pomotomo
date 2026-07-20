@@ -8,11 +8,11 @@ function TaskInput({ onAddTask, setModuleOpen, setActiveMachine }) {
   const [taskText, setTaskText] = useState('');
   const [taskTime, setTaskTime] = useState(0);
 
+  //Adds new task
   function handleSubmit(e) {
     e.preventDefault();
     if (!taskText.trim()) return;
     const newTask = { taskText, taskTime, completed: false, id: Date.now() };
-    console.log(newTask);
     onAddTask(newTask);
     setTaskText('');
     setTaskTime(0);
@@ -24,9 +24,9 @@ function TaskInput({ onAddTask, setModuleOpen, setActiveMachine }) {
       <motion.form
         className={styles.container}
         onSubmit={handleSubmit}
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0.3, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
+        exit={{ opacity: 0.3, scale: 0.95 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
       >
         <TextInput
